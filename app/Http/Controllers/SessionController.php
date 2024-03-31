@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
@@ -16,7 +17,8 @@ class SessionController extends Controller
             "password" => "required"
         ]);
         
-        if (! auth()->attempt($attributes)) {
+
+        if (! Auth::attempt($attributes)) {
             return back()
             ->withInput()
             ->withErrors(["username" => 'Не существует аккаунта с такими данными']);
