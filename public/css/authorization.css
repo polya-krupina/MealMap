@@ -11,7 +11,6 @@ body, html {
 }
 #container{
     display: flex;
-    width: 1920px;
     flex-direction: column;
     align-items: center;
     gap: 50px;
@@ -166,4 +165,25 @@ button:hover{
     height: 16px;
     position: absolute;
     right: 30px;
+}
+.error{
+    color: #000301;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding: 18px 21px;
+    border-radius: 16px;
+    border: 1px solid #C90000;
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
+}
+.button_cantainer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    left: calc(50% - 225px);
 }

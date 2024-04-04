@@ -13,7 +13,7 @@ class SessionController extends Controller
 
     public function store(Request $request){
         $attributes = $request->validate([
-            "username" => "required",
+            "phone_number" => "required",
             "password" => "required"
         ]);
         
@@ -21,11 +21,17 @@ class SessionController extends Controller
         if (! Auth::attempt($attributes)) {
             return back()
             ->withInput()
-            ->withErrors(["username" => 'Не существует аккаунта с такими данными']);
+            ->withErrors(["phone_number" => 'Не существует аккаунта с такими данными']);
         }
         
         session()->regenerate();
 
+        return redirect('');
+    }
+
+    public function destroy(){
+        Auth::logout();
+        
         return redirect('');
     }
 }

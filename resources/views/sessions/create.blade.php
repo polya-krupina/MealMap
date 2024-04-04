@@ -23,9 +23,9 @@
     <form class="login-form" action="/sessions" method="POST">
         @csrf
         <div class="form-group">
-            <input type="text" class="form-input" placeholder=" " name="username" required>
-            <span class="label-hover">Логин</span>
-            <label class="form-label"><img src="img/profile.svg">Введите логин ...</label>
+            <input type="text" class="form-input" placeholder=" " name="phone_number" required>
+            <span class="label-hover">Номер телефона</span>
+            <label class="form-label"><img src="img/profile.svg">Введите номер телефона...</label>
         </div>
         <div class="form-group">
             <div id="toggle-button">
@@ -35,10 +35,12 @@
             <span class="label-hover">Пароль</span>
             <label class="form-label">Введите пароль ...</label>
         </div>
-        @error('username')
-            <p>{{ $message }}</p>
-        @enderror
-        <button type="submit">Сохранить</button>
+        <div class="button_cantainer">
+            <button type="submit">Сохранить</button>
+            @error('phone_number')
+                <div class="error">{{ $message }}</div>
+            @enderror
+        </div>
     </div>
 </div>
 <script>
@@ -59,7 +61,6 @@
             icon.onmouseout = function() { this.src = "img/closed.svg"; };
         }
     });
-
 </script>
 </body>
 </html>

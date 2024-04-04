@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('login', [SessionController::class,'login'])->middleware('guest')->name('login');
 Route::post('sessions', [SessionController::class,'store'])->middleware('guest');
+Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
