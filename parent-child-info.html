@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-child-info.css">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="#" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <span id="my-children">Мои дети</span>
+        <ul class="children">
+            <hr></hr>
+            <li class="child-button active">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px"><span>Иванов Петр</span></a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+            <li class="child-button">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px">Иванов Иван</a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="#" class="button" width="22" height="21"><img src="img/monthly menu.svg"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/my templates.svg"><span>Мои шаблоны</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/payment.svg"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="child-info">
+            <img class="profile-img" src="img/empty.jpg" width="125px" height="125px">
+            <div class="main-info">
+                <p class="child-name">Иванов Петр Александрович</p>
+                <p class="group">Группа: К-152</p>
+            </div>
+            <div class="contacts">
+                <p>Контакт родителя</p>
+                <div class="number">
+                    <p>+7 999 999 99 99</p>
+                    <img src="img/edit-number.svg" onmouseover="this.src='img/edit-number-hover.svg';" onmouseout="this.src='img/edit-number.svg';" width="13px">
+                </div>
+            </div>
+        </div>
+        <div class="allergies">
+            <h1>Аллергия</h1>
+            <div class="allergies-info">
+                <div class="search-container">
+                    <input type="search" class="search-line" placeholder=" ">
+                    <label class="search-label">
+                        <img src="img/search.svg">
+                        <p>Название продукта ...</p>
+                    </label>
+                </div>
+                <div class="allergies-list">
+                    <div class="allergy-card">
+                        <p class="allergy-name">Картофель</p>
+                        <button class="remove-allergy"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
