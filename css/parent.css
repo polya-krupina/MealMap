@@ -1,0 +1,25 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Inter';
+    font-weight: 400;
+    color: #F6F6F6;
+    background-color: #F6F6F6;
+}
+
+/*parent-default*/
+.logo-big-container{    
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 378px;
+    right: 0;
+    background-color: #F6F6F6;
+}
+.logo-big{
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
