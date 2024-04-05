@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('phone_number')->unique();
-            $table->integer('user_group')->nullable(false);
         });
     }
 

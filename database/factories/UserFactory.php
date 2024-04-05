@@ -18,8 +18,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'password' => 'password', // password
             'remember_token' => Str::random(10),
-            'phone_number' => $this->faker->unique()->e164PhoneNumber(),
-            'user_group' => rand(0, 3)
+            'phone_number' => $this->faker->unique()->e164PhoneNumber()
         ];
     }
 
