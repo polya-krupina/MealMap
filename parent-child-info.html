@@ -47,7 +47,7 @@
                 <p>Контакт родителя</p>
                 <div class="number">
                     <p>+7 999 999 99 99</p>
-                    <img src="img/edit-number.svg" onmouseover="this.src='img/edit-number-hover.svg';" onmouseout="this.src='img/edit-number.svg';" width="13px">
+                    <button id="change-number"><img src="img/edit-number.svg" onmouseover="this.src='img/edit-number-hover.svg';" onmouseout="this.src='img/edit-number.svg';" width="13px"></button>
                 </div>
             </div>
         </div>
@@ -69,6 +69,34 @@
                 </div>
             </div>
         </div>
+        <div id="dark-overlay"></div>
+        <div id="change-number-form">
+            <button id="close-change-number"></button>
+            <label class="form-label">Изменение номера телефона</label>
+            <div class="input-line">
+                <input type="text" class="form-input" placeholder=" ">
+                <p class="number-input-text">Введите номер телефона</p>
+            </div>
+            <button type="submit" class="send-code">Отправить код</button>
+        </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var changeNumberButton = document.getElementById('change-number');
+            var closeChangeNumberButton = document.getElementById('close-change-number');
+            var changeNumberForm = document.getElementById('change-number-form');
+            var darkOverlay = document.getElementById('dark-overlay');
+
+            changeNumberButton.addEventListener('click', function() {
+                changeNumberForm.style.display = 'flex';
+                darkOverlay.style.display = 'block';
+            });
+
+            closeChangeNumberButton.addEventListener('click', function() {
+                changeNumberForm.style.display = 'none';
+                darkOverlay.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
