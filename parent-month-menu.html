@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <link rel="stylesheet" href="css/parent-month-menu.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="#" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <span id="my-children">Мои дети</span>
+        <ul class="children">
+            <hr></hr>
+            <li class="child-button">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px"><span>Иванов Петр</span></a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+            <li class="child-button">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px">Иванов Иван</a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="#" class="button active" width="22" height="21"><img src="img/monthly menu.svg"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/my templates.svg"><span>Мои шаблоны</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/payment.svg"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="header">
+            <h1>Меню</h1>
+            <div class="meals-list">
+                <a href="#breakfast" class="meal-link">Завтрак</a>
+                <a href="#second-breakfast" class="meal-link">Второй завтрак</a>
+                <a href="#lunch" class="meal-link">Обед</a>
+                <a href="#afternoon-snack" class="meal-link">Полдник</a>
+            </div>
+        </div>
+        <section class="menu">
+            <div class="meal-section" id="breakfast">
+                <h2>Завтрак</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="second-breakfast">
+                <h2>Второй завтрак</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="lunch">
+                <h2>Обед</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="afternoon-snack">
+                <h2>Полдник</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var mealLinks = document.querySelectorAll('.meal-link');
+
+            mealLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    var targetId = this.getAttribute('href');
+                    var targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        var offsetTop = targetElement.offsetTop - 200;
+
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>

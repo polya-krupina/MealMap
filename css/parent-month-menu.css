@@ -1,0 +1,137 @@
+.content{
+    position:absolute;
+    padding-left: 30px;
+    padding-right: 30px;
+    top: 0;
+    bottom: 0;
+    left: 378px;
+    right: 0;
+    background-color: #F6F6F6;
+    color: #000301;
+}
+a{
+    text-decoration: none;
+    color: #000301;
+}
+h1{
+    color: #000301;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+h2{
+    color: #878787;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+h3{
+    color: #000301;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.3s;
+}
+.meal-section > hr{
+    height: 1px;
+    background: #D4D4D4;
+    border: none;
+    margin-top: 5px;
+    margin-bottom: 23px;
+}
+.meals-list{
+    margin-top: 39px;
+    display: flex;
+    width: 683px;
+    height: 37px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    color: #000301;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+.meal-link:hover{
+    color:#00AD3A;
+    border-bottom: 2px solid #00AD3A;
+}
+.header{
+    padding-bottom: 35px;
+    padding-top: 50px;
+    position: fixed;
+    background-color: #F6F6F6;
+    width: 100%;
+}
+.menu{
+    margin-top: 200px;
+    padding-bottom: 30px;
+}
+.meal-section{
+    margin-top: 23px;
+}
+.dish-card{
+    width: 346px;
+    height: 264px;
+    border: 1.16px solid #D4D4D4;
+    border-radius: 16px;
+}
+.dish-img{
+    height: 186px;
+    background-image: url('../img/fried-eggs.png');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 16px 16px 0px 0px;
+}
+.dish-info{
+    padding: 13.4px 34px 22.17px 23.2px;
+}
+.main-dish-info{
+    display: flex;
+    justify-content: space-between;
+}
+.price{
+    color: #000301;
+    text-align: right;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.open-info{
+    background-color: transparent;
+    border: none;
+}
+.open-info:hover h3{
+    color: #00AD3A;
+}
+.composition{
+    display: block;
+    margin-top: 8px;
+    color: #878787;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    height: 15px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dishes-list{
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+}
