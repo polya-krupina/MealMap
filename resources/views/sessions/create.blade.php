@@ -36,7 +36,7 @@
             <label class="form-label">Введите пароль ...</label>
         </div>
         <div class="button_cantainer">
-            <button type="submit">Сохранить</button>
+            <button type="submit">Войти</button>
             @error('phone_number')
                 <div class="error">{{ $message }}</div>
             @enderror

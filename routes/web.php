@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth')->name('home');
+Route::get('/', [UserGroupController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('login', [SessionController::class,'login'])->middleware('guest')->name('login');
 Route::post('sessions', [SessionController::class,'store'])->middleware('guest');
