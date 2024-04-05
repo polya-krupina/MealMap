@@ -19,4 +19,8 @@ class Kid extends Model
     public function group(){
         return $this->belongsTo(Group::class);
     }
+
+    public function allergies(){
+        return $this->belongsToMany(Product::class, "allergies");
+    }
 }

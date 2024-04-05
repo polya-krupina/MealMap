@@ -39,5 +39,10 @@ class DatabaseSeeder extends Seeder
         $users = User::all()->map(function (User $user) use ($parentRole) { 
             $user->assignRole($parentRole);
         });
+
+        $user = User::first();
+        Kid::factory()->create([
+            'user_id' => $user->id
+        ]);
     }
 }

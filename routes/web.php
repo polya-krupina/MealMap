@@ -24,3 +24,4 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 
 
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('auth');
+Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('auth');

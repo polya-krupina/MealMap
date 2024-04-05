@@ -13,4 +13,11 @@ class ParentController extends Controller
             'kid' => $kid
         ]);
     }
+
+    public function allergy(Kid $kid){
+        return view('kids.allergies', [
+            'kids' => auth()->user()->kids,
+            'kid' => $kid
+        ]);
+    }
 }
