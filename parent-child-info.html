@@ -125,17 +125,25 @@
             var searchLine = document.getElementById('search-line');
             var searchList = document.getElementById('search-list');
             var searchContainer = document.getElementById('search-container');
-
-            searchLine.addEventListener('focus', function() {
+    
+            function handleFocus() {
                 searchList.style.display = 'flex';
                 searchList.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
                 searchContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
-            });
-
-            searchLine.addEventListener('blur', function() {
+            }
+    
+            function handleBlur() {
                 searchList.style.display = 'none';
                 searchList.style.boxShadow = 'none';
                 searchContainer.style.boxShadow = 'none';
+            }
+    
+            searchLine.addEventListener('focus', handleFocus);
+    
+            document.addEventListener('click', function(event) {
+                if (event.target !== searchList && !searchList.contains(event.target) && event.target !== searchLine) {
+                    handleBlur();
+                }
             });
         });
     </script>
