@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <link rel="stylesheet" href="css/parent.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="#" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <span id="my-children">Мои дети</span>
+        <ul class="children">
+            <hr></hr>
+            <li class="child-button active">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px"><span>Иванов Петр</span></a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+            <li class="child-button">
+                <a href="#" class="child"><img src="img/empty.jpg" width="28px" height="28px">Иванов Иван</a>
+                <a href="#" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="#" class="button" width="22" height="21"><img src="img/monthly menu.svg"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/my templates.svg"><span>Мои шаблоны</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/payment.svg"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="page-content">
+        <div id="week-choice">
+            <a href="#" class="change-week"><img src="img/left.svg" onmouseover="this.src='img/leftHover.svg';" onmouseout="this.src='img/left.svg';" width="26px"></a>
+            <span class="week-info">04 - 10 марта 2024</span>
+            <a href="#" class="change-week"><img src="img/right.svg" onmouseover="this.src='img/rightHover.svg';" onmouseout="this.src='img/right.svg';" width="26px"></a>
+        </div>
+        <div id="day-choice">
+            <a href="#" class="day menu-selected">ПН</a>
+            <a href="#" class="day">ВТ</a>
+            <a href="#" class="day menu-selected">СР</a>
+            <a href="#" class="day menu-selected">ЧТ</a>
+            <a href="#" class="day">ПТ</a>
+            <a href="#" class="day">СБ</a>
+        </div>
+        <span class="choice-info">Если расписание не будет выбрано, 
+            то применится универсальный шаблон, предоставляемый детским садом </span>
+        <div id="calendar-container">
+            <div id="calendar">
+                <table class="month-menu">
+                    <tr class="meals">
+                        <td class="day-name"></td>
+                        <td class="meal">Завтрак</td>
+                        <td class="meal">Второй завтрак</td>
+                        <td class="meal">Обед</td>
+                        <td class="meal">Полдник</td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">ПН</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">ВТ</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">СР</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">ЧТ</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">ПТ</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                    <tr class="day-menu">
+                        <td class="day-name">СБ</td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                        <td class="dishes-list"><div>Яичница<br>Булка<br>Компот</div></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
