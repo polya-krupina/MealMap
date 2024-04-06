@@ -6,10 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/parent-left-menu.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/parent-child-info.css') }}">
+
+    @stack('styles')
+    
     <title>MealMap</title>
 </head>
 <body>

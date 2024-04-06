@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
@@ -26,5 +27,8 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('auth')->name('kid');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('auth');
+
+Route::post('allergy', [AllergyController::class,'create'])->middleware('auth');
+Route::delete('allergy', [AllergyController::class,'delete'])->middleware('auth');
 
 Route::get('/dishes',[DishesController::class, 'show'])->middleware('auth');
