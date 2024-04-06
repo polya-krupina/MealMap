@@ -1,0 +1,113 @@
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+#menu {
+    background-color: var(--green-color);
+    display: flex;
+    flex-direction: column;
+    width: 378px;
+    height: 100%;
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+}
+.kindergarten-name{
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+.logo{
+    margin: 30px 0 0 30px;
+    height: 25px;
+}
+#my-children{    
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--white-text);
+    margin: 150px 0 0 30px;
+}
+.children{    
+    display: inline-flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 0px;
+    margin-top: 31px;
+}
+.child{
+    display: flex;
+    align-items: center;
+    color: var(--white-text);
+    font-size: 20px;
+    font-weight: 300;
+    padding-left: 30px;
+}
+.child-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    padding-right: 31px;
+    transition: 0.3s;
+}
+.edit-child{
+    display: block;
+    height: 21px;
+    transition: 0.3s;
+}
+.edit-child:hover{
+    opacity: 0.5;
+}
+.child img{
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.active{
+    background-color: var(--green-dark);
+}
+.buttons{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: left;
+    width: 100%;
+    position: absolute;
+    bottom: 52px;
+}
+.button{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white-text);
+    font-size: 20px;
+    font-weight: 300;
+    padding: 20px 30px;
+    padding-left: 30px;
+    gap: 15px;
+    transition: 0.3s;
+}
+.button-icon{
+    height: 21px;
+}
+.buttons hr, .children hr{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+	border: none;
+	border-top: 1px solid var(--white-background);
+    opacity: 0.25;
+}
+.button:hover,
+.child-button:hover{
+    background-color: var(--green-light);
+}
+.button:active,
+.child-button:active{
+    background-color: var(--green-dark);
+}

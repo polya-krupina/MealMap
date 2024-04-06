@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/authorization.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>MealMap</title>
 </head>
 <body>
@@ -33,7 +34,7 @@
             </div>
             <input type="password" class="form-input" id="password-input" placeholder=" " name="password">
             <span class="label-hover">Пароль</span>
-            <label class="form-label">Введите пароль ...</label>
+            <label class="form-label"><img src="img/password.svg">Введите пароль ...</label>
         </div>
         <div class="button_cantainer">
             <button type="submit">Войти</button>

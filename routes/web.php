@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserGroupController;
@@ -23,5 +24,7 @@ Route::post('sessions', [SessionController::class,'store'])->middleware('guest')
 Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 
 
-Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('auth');
+Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('auth')->name('kid');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('auth');
+
+Route::get('/dishes',[DishesController::class, 'show'])->middleware('auth');

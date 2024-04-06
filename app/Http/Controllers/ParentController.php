@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kid;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ParentController extends Controller
@@ -17,7 +18,8 @@ class ParentController extends Controller
     public function allergy(Kid $kid){
         return view('kids.allergies', [
             'kids' => auth()->user()->kids,
-            'kid' => $kid
+            'kid' => $kid,
+            'products'=> Product::all()
         ]);
     }
 }

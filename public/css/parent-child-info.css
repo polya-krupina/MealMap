@@ -1,0 +1,329 @@
+.content{
+    color: var(--black-text);
+    position:absolute;
+    padding: 50px 30px 0 30px;;
+    top: 0;
+    bottom: 0;
+    left: 378px;
+    right: 0;
+    background-color: var(--white-background);
+}
+.profile-img{
+    border-radius: 50%;
+}
+.child-info{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+.main-info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.child-name{
+    color: var(--black-text);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.group{
+    color: var(--grey-text);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.contacts{
+    margin-left: auto;
+    align-self: flex-start;
+    margin-top: 30px;
+    margin-right: 20px;
+    color: var(--black-text);
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 200;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    text-align: right;
+}
+.number{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#change-number{
+    border: none;
+    background-color: transparent;
+    width: 13px;
+    height: 13px;
+}
+h1{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--black-text);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+.allergies-info{
+    height: 390px;
+    padding: 30px;
+    position: absolute;
+    top: 274px;
+    left: 30px;
+    right: 30px;
+    background-color: var(--white-background);
+    border: 1px solid var(--grey-border);
+    border-radius: var(--border-radius);
+    filter: drop-shadow(2px 2px 20px rgba(0, 0, 0, 0.10));
+}
+#search-container{
+    width: 1362px;
+    padding: 15px 30px;
+    position: relative;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    color: var(--grey-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background: transparent;
+}
+.search-label{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+    transition: 0.3s;
+}
+#search-line{
+    background-color: transparent;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    color: var(--grey-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+#search-line:focus ~ .search-label,
+#search-line:not(:placeholder-shown) ~ .search-label{
+    opacity: 0;
+}
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+input[type="search"]::-ms-clear {
+    display: none;
+}
+.allergies-list{
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+#search-list{
+    position: absolute;
+    top: 95px;
+    width: 1422px;
+    max-height: 192px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background-color: var(--white-background);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+    display: none;
+}
+#search-list::-webkit-scrollbar {
+    width: 20px;
+}
+  
+#search-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+#search-list::-webkit-scrollbar-thumb {
+    background: var(--green-color);
+    border-radius: var(--border-radius);
+}
+.allergy{
+    width: 100%;
+    padding: 15px 30px;
+    transition: 0.3s;
+}
+.allergy:hover{
+    color: var(--green-color);
+}
+.allergy-card{
+    display: flex;
+    width: 162px;
+    height: 28px;
+    padding: 10px 20px;
+    padding-right: 10px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background-color: var(--white-background);
+    transition: 0.3s;
+}
+.remove-allergy{
+    width: 31px;
+    height: 31px;
+    background-image: url('../img/remove.svg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center center;
+    border: none;
+    background-color: transparent;
+}
+.remove-allergy:hover{
+    background-image: url('../img/remove-hover.svg');
+    background-position: 2px 2px;
+}
+.allergy-card:hover{
+    color: var(--green-color);
+    border-color: var(--green-color);
+}
+#dark-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+#change-number-form{
+    position: absolute;
+    z-index: 10000;
+    left: 45%;
+    transform: translate(-50%, 0%);
+    top: 34%;
+    display: flex;
+    width: 521px;
+    padding: 50px 30px 60px 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--white-background);
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
+    display: none;
+}
+.form-label{
+    color: var(--black-text);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+.input-line{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.number-input-text{
+    position: absolute;
+    color:var(--grey-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    border-radius: var(--border-radius);
+    z-index: -1;
+    margin-left: 30px;
+    transition: 0.3s;
+}
+.form-input{
+    width: 381px;
+    height: 18px;
+    padding: 21px 30px;
+    color:var(--grey-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+.form-input:hover,
+.form-input:focus{
+    border-color: var(--green-color);
+}
+.form-input:hover ~ .number-input-text,
+.form-input:focus ~ .number-input-text,
+.form-input:not(:placeholder-shown) ~ .number-input-text{
+    opacity: 0;
+}
+.send-code{
+    display: flex;
+    width: 441px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 441px;
+    height: 60px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    border: none;
+    background: var(--green-color);
+    color: var(--white-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.3s;
+}
+.send-code:hover{    
+    background-color: var(--green-light);
+    box-shadow: 2px 2px 10px 0px rgba(0, 255, 56, 0.50);
+}
+.send-code:active{    
+    background-color: var(--grey-text);
+    box-shadow: none;
+}
+#close-change-number{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 14px;
+    height: 14px;
+    background-image: url('../img/remove.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border: none;
+    background-color: transparent;
+}
+#close-change-number:hover{
+    background-image: url('../img/remove-hover.svg');
+    background-position: -11px -11px;
+    background-size: 41px 41px;
+}
