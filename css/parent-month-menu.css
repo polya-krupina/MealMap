@@ -6,24 +6,22 @@
     bottom: 0;
     left: 378px;
     right: 0;
-    background-color: #F6F6F6;
-    color: #000301;
+    background-color: var(--white-background);
+    color: var(--black-text);
 }
 a{
     text-decoration: none;
-    color: #000301;
+    color: var(--black-text);
 }
 h1{
-    color: #000301;
-    font-family: Inter;
+    color: var(--black-text);
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 h2{
-    color: #878787;
-    font-family: Inter;
+    color: var(--grey-text);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -32,8 +30,7 @@ h2{
     text-transform: uppercase;
 }
 h3{
-    color: #000301;
-    font-family: Inter;
+    color: var(--black-text);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -41,8 +38,7 @@ h3{
     transition: 0.3s;
 }
 h4{
-    color: #000301;
-    font-family: Inter;
+    color: var(--black-text);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -51,7 +47,7 @@ h4{
     text-transform: uppercase;
 }
 h5{
-    color: #000301;
+    color: var(--black-text);
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -59,7 +55,7 @@ h5{
 }
 .meal-section > hr{
     height: 1px;
-    background: #D4D4D4;
+    background: var(--grey-border);
     border: none;
     margin-top: 5px;
     margin-bottom: 23px;
@@ -72,8 +68,7 @@ h5{
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-    color: #000301;
-    font-family: Inter;
+    color: var(--black-text);
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -82,14 +77,14 @@ h5{
     text-transform: uppercase;
 }
 .meal-link:hover{
-    color:#00AD3A;
-    border-bottom: 2px solid #00AD3A;
+    color:var(--green-color);
+    border-bottom: 2px solid var(--green-color);
 }
 .header{
     padding-bottom: 35px;
     padding-top: 50px;
     position: fixed;
-    background-color: #F6F6F6;
+    background-color: var(--white-background);
     width: 100%;
 }
 .menu{
@@ -102,15 +97,15 @@ h5{
 .dish-card{
     width: 346px;
     height: 264px;
-    border: 1.16px solid #D4D4D4;
-    border-radius: 16px;
+    border: 1.16px solid var(--grey-border);
+    border-radius: var(--border-radius);
 }
 .dish-img{
     height: 186px;
     background-image: url('../img/fried-eggs.png');
     background-size: cover;
     background-position: center center;
-    border-radius: 16px 16px 0px 0px;
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
 }
 .dish-info{
     padding: 13.4px 34px 22.17px 23.2px;
@@ -121,7 +116,7 @@ h5{
     align-items: center;
 }
 .price{
-    color: #000301;
+    color: var(--black-text);
     text-align: right;
     font-size: 16px;
     font-style: normal;
@@ -133,12 +128,12 @@ h5{
     border: none;
 }
 .open-info:hover h3{
-    color: #00AD3A;
+    color: var(--green-color);
 }
 .composition{
     display: block;
     margin-top: 8px;
-    color: #878787;
+    color: var(--grey-text);
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
@@ -164,9 +159,9 @@ h5{
     width: 376px;
     height: auto;
     border: 1px solid black;
-    border-radius: 16px;
-    border: 1px solid #D4D4D4;
-    background: #F6F6F6;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background-color: var(--white-background);
     box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
 }
 #dark-overlay{
@@ -188,7 +183,7 @@ h5{
     background-image: url('../img/fried-eggs.png');
     background-size: cover;
     background-position: center center;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     margin-top: 20px;
 }
 .composition-big{
@@ -197,13 +192,13 @@ h5{
 #dish-info-card hr{
     border: none;
     height: 1px;
-    background-color: #00AD3A;
+    background-color: var(--green-color);
     margin-top: 10px;
 }
 .composition-text,
 .values-list{
     height: 59px;
-    color: #878787;
+    color: var(--grey-text);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

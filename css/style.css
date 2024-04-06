@@ -1,0 +1,25 @@
+:root {
+    --white-background: #F6F6F6;
+    --white-text: #F6F6F6;
+    --black-text: #000301;
+    --grey-text: #878787;
+    --grey-border: #D4D4D4;
+    --red-color: #C90000;
+    --green-color: #00AD3A;
+    --green-light: #37AD5F;
+    --green-dark: #006221;
+    --border-radius: 16px;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-weight: 400;
+    color: var(--white-text);
+    background-color: var(--white-background);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+}
