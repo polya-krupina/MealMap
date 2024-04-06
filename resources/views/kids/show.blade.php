@@ -1,4 +1,9 @@
 <x-layout :kids="$kids" class="page-content">
+    
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
+    @endpush
+
     <div id="week-choice">
         <a href="#" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src={{ asset('img/leftHover.svg') }};" onmouseout="this.src={{ asset('img/left.svg') }};" width="26px"></a>
         <span class="week-info">04 - 10 марта 2024</span>

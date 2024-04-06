@@ -1,4 +1,8 @@
 <x-layout class="content" :kids="$kids">
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/parent-month-menu.css') }}">
+    @endpush
+
     <div class="header">
         <h1>Меню</h1>
         <div class="meals-list">
@@ -14,8 +18,8 @@
             <hr></hr>
             <div class="dishes-list">
                 <div class="dish-card">
-                    <div class="dish-img" style="background-image: url({{ asset('img/fried-eggs.png') }})"></div>
-                    <div class="dish-info">
+                    <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                    <div class="dish-info"> 
                         <div class="main-dish-info">
                             <button class="open-info"><h3>Яичница</h3></button>
                             <p class="price">200 ₽</p>
@@ -30,7 +34,7 @@
             <hr></hr>
             <div class="dishes-list">
                 <div class="dish-card">
-                    <div class="dish-img"></div>
+                    <div class="dish-img"><img src="img/fried-eggs.png"></div>
                     <div class="dish-info">
                         <div class="main-dish-info">
                             <button class="open-info"><h3>Яичница</h3></button>
@@ -46,7 +50,7 @@
             <hr></hr>
             <div class="dishes-list">
                 <div class="dish-card">
-                    <div class="dish-img"></div>
+                    <div class="dish-img"><img src="img/fried-eggs.png"></div>
                     <div class="dish-info">
                         <div class="main-dish-info">
                             <button class="open-info"><h3>Яичница</h3></button>
@@ -62,7 +66,7 @@
             <hr></hr>
             <div class="dishes-list">
                 <div class="dish-card">
-                    <div class="dish-img"></div>
+                    <div class="dish-img"><img src="img/fried-eggs.png"></div>
                     <div class="dish-info">
                         <div class="main-dish-info">
                             <button class="open-info"><h3>Яичница</h3></button>

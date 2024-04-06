@@ -1,4 +1,9 @@
 <x-layout :kids="$kids" class="content">
+    @push('styles')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('css/parent-child-info.css') }}">
+    @endpush
+
     <div class="child-info">
         <img class="profile-img" src="{{ asset('img/empty.jpg') }}" width="125px" height="125px">
         <div class="main-info">
@@ -27,7 +32,7 @@
                 <div id="search-list">
                     <ul class="choose-allergy">
                         @foreach($products as $product)
-                            <li class="allergy">
+                            <li class="allergy" data-id="{{ $product->id }}">
                                 {{ $product->name }}
                             </li>
                         @endforeach
@@ -38,7 +43,13 @@
                 @foreach($kid->allergies as $allergy)
                     <div class="allergy-card">
                         <p class="allergy-name">{{ $allergy->name }}</p>
-                        <button class="remove-allergy"></button>
+                        <form action="/allergy" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="hidden" name="kid" value="{{ $kid->id }}">
+                            <input type="hidden" name="product" value={{ $allergy->id }}>
+                            <button class="remove-allergy"></button>
+                        </form>
                     </div>
                 @endforeach
             </div>
@@ -55,6 +66,34 @@
         <button type="submit" class="send-code">Отправить код</button>
     </div>
 </section>
+<script>
+    document.querySelectorAll('.allergy').forEach(function(allergy) {
+        allergy.addEventListener('click', function() {
+            var productId = this.dataset.id;
+            var kidId = getKidIdFromUri();
+            // Отправка AJAX-запроса на сервер
+            axios.post('/allergy', {
+                kid_id: kidId,
+                product_id: productId
+            })
+            .then(function(response) {
+                console.log(response);
+                location.reload();
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        });
+});
+
+function getKidIdFromUri() {
+    var uri = window.location.pathname;
+    var segments = uri.split('/');
+    var kidId = segments[segments.length - 2];
+
+    return kidId;
+}
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var changeNumberButton = document.getElementById('change-number');
@@ -79,16 +118,23 @@
         var searchList = document.getElementById('search-list');
         var searchContainer = document.getElementById('search-container');
 
-        searchLine.addEventListener('focus', function() {
+        function handleFocus() {
             searchList.style.display = 'flex';
             searchList.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
             searchContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
-        });
+        };
 
-        searchLine.addEventListener('blur', function() {
+        function handleBlur() {
             searchList.style.display = 'none';
             searchList.style.boxShadow = 'none';
             searchContainer.style.boxShadow = 'none';
+        };
+        searchLine.addEventListener('focus', handleFocus);
+
+            document.addEventListener('click', function(event) {
+                if (event.target !== searchList && !searchList.contains(event.target) && event.target !== searchLine) {
+                    handleBlur();
+                }
         });
     });
 </script>

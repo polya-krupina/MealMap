@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 .content{
     position:absolute;
     padding-left: 30px;
@@ -102,9 +106,14 @@ h5{
 }
 .dish-img{
     height: 186px;
-    background-size: cover;
-    background-position: center center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+}
+.dish-img img{
+    width: 100%;
+    object-fit: cover;
 }
 .dish-info{
     padding: 13.4px 34px 22.17px 23.2px;
@@ -178,12 +187,16 @@ h5{
 }
 .dish-img-big{
     width: 375px;
-    height: 233px;    
-    background-image: url('../img/fried-eggs.png');
-    background-size: cover;
-    background-position: center center;
+    height: 233px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     border-radius: var(--border-radius);
     margin-top: 20px;
+}
+.dish-img-big img{
+    width: 100%;
+    object-fit: cover;
 }
 .composition-big{
     margin-top: 35px;
