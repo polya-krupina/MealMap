@@ -54,12 +54,33 @@
         <div class="allergies">
             <h1>Аллергия</h1>
             <div class="allergies-info">
-                <div class="search-container">
-                    <input type="search" class="search-line" placeholder=" ">
-                    <label class="search-label">
-                        <img src="img/search.svg">
-                        <p>Название продукта ...</p>
-                    </label>
+                <div id="search-section">
+                    <div id="search-container">
+                        <input type="search" id="search-line" placeholder=" ">
+                        <label class="search-label">
+                            <img src="img/search.svg">
+                            <p>Название продукта ...</p>
+                        </label>
+                    </div>
+                    <div id="search-list">
+                        <ul class="choose-allergy">
+                            <li class="allergy">
+                                Говядина
+                            </li>
+                            <li class="allergy">
+                                Яйцо
+                            </li>
+                            <li class="allergy">
+                                Картофель
+                            </li>
+                            <li class="allergy">
+                                Морковь
+                            </li>
+                            <li class="allergy">
+                                Что-то еще
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="allergies-list">
                     <div class="allergy-card">
@@ -95,6 +116,43 @@
             closeChangeNumberButton.addEventListener('click', function() {
                 changeNumberForm.style.display = 'none';
                 darkOverlay.style.display = 'none';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchLine = document.getElementById('search-line');
+            var searchList = document.getElementById('search-list');
+            var searchContainer = document.getElementById('search-container');
+
+            searchLine.addEventListener('focus', function() {
+                searchList.style.display = 'flex';
+                searchList.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
+                searchContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
+            });
+
+            searchLine.addEventListener('blur', function() {
+                searchList.style.display = 'none';
+                searchList.style.boxShadow = 'none';
+                searchContainer.style.boxShadow = 'none';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchLine = document.getElementById('search-line');
+            var searchListItems = document.querySelectorAll('#search-list .allergy');
+
+            searchLine.addEventListener('input', function() {
+                var searchTerm = searchLine.value.toLowerCase();
+                searchListItems.forEach(function(item) {
+                    var textContent = item.textContent.toLowerCase();
+                    if (textContent.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
