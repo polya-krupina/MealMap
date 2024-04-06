@@ -11,4 +11,16 @@ class Kid extends Model
 
     protected $guarded = [];
     public $timestamps = false;
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function group(){
+        return $this->belongsTo(Group::class);
+    }
+
+    public function allergies(){
+        return $this->belongsToMany(Product::class, "allergies");
+    }
 }

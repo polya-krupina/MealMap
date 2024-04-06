@@ -1,14 +1,3 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter' sans-serif;
-    font-weight: 400;
-    background-color: #F6F6F6;
-}
-*{
-    margin: 0;
-    padding: 0;
-}
 #container{
     display: flex;
     flex-direction: column;
@@ -20,11 +9,10 @@ body, html {
     transform: translate(-50%, -50%);
 }
 h1{
-    font-family: 'Inter';
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
-    color: #000301;
+    color: var(--black-text);
 }
 #greeting{
     display: flex;
@@ -47,11 +35,10 @@ hr{
     padding: 0;
     margin: 0;
 	border: none;
-	border-top: 1px solid #D4D4D4;
+	border-top: 1px solid var(--grey-border);
 }
 h2{
-    color: #878787;
-    font-family: 'Inter';
+    color: var(--grey-text);
     font-size: 24px;
     font-style: normal;
     font-weight: 300;
@@ -68,8 +55,7 @@ input{
     height: 65px;
     padding: 0 30px;
     gap: 10px;
-    color:#000301;
-    font-family: 'Inter';
+    color: var(--black-text);
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -90,8 +76,7 @@ input{
     height: 23px;
     left: 30px;
     z-index: -1;    
-    color:#878787;
-    font-family: 'Inter';
+    color:var(--grey-text);
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -102,14 +87,14 @@ input{
     transition: 0.3s;
 }
 .form-input{
-    border-radius: 16px;
-    border: 1px solid #D4D4D4;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
     transition: 0.3s;
 }
 .form-input:hover,
 .form-input:focus,
 #toggle-button:hover ~ .form-input{
-    border-color: #00AD3A;
+    border-color: var(--green-color);
 }
 .form-input:hover ~ .form-label,
 .form-input:focus ~ .form-label,
@@ -124,10 +109,9 @@ input{
 }
 .label-hover{
     opacity: 0;
-    color: #00AD3A;
-    background-color: #F6F6F6;
+    color: var(--green-color);
+    background-color: var(--white-background);
     padding: 0 15px;
-    font-family: 'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
@@ -143,20 +127,19 @@ button{
     height: 60px;
     justify-content: center;
     align-items: center;
-    color: #F6F6F6;
+    color: var(--white-text);
     text-align: center;
-    font-family: "Inter";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    background-color: #00AD3A;
-    border-radius: 16px;
+    background-color: var(--green-color);
+    border-radius: var(--border-radius);
     border: none;
     transition: 0.3s;
 }
 button:hover{
-    background-color: #37AD5F;
+    background-color: var(--green-light);
 }
 #toggle-button{
     background-color: transparent;
@@ -167,15 +150,14 @@ button:hover{
     right: 30px;
 }
 .error{
-    color: #000301;
-    font-family: 'Inter';
+    color: var(--black-text);
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     padding: 18px 21px;
-    border-radius: 16px;
-    border: 1px solid #C90000;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--red-color);
     box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
 }
 .button_cantainer{
