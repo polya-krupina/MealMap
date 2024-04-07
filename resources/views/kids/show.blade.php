@@ -1,4 +1,4 @@
-<x-layout :kids="$kids" class="page-content">
+<x-layout :kids="$kids" class="page-content" :active="$kid->id">
     
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/parent.css') }}">

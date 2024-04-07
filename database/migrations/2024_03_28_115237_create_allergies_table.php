@@ -14,9 +14,9 @@ class CreateAllergiesTable extends Migration
     public function up()
     {
         Schema::create('allergies', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('kid_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->primary(['kid_id', 'product_id']);
         });
     }
 

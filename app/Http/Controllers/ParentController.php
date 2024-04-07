@@ -16,10 +16,13 @@ class ParentController extends Controller
     }
 
     public function allergy(Kid $kid){
+        $allergies = $kid->allergies;
+        $products = Product::all()->whereNotIn('id', $allergies->pluck('id'));
+
         return view('kids.allergies', [
             'kids' => auth()->user()->kids,
             'kid' => $kid,
-            'products'=> Product::all()
+            'products'=> $products
         ]);
     }
 }

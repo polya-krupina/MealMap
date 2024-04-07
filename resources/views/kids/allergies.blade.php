@@ -1,9 +1,12 @@
-<x-layout :kids="$kids" class="content">
+<x-layout :kids="$kids" class="content" :active="$kid->id">
     @push('styles')
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/parent-child-info.css') }}">
     @endpush
 
+    @push('active')
+        {{ $kid->id }}
+    @endpush
     <div class="child-info">
         <img class="profile-img" src="{{ asset('img/empty.jpg') }}" width="125px" height="125px">
         <div class="main-info">

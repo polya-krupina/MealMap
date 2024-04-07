@@ -1,3 +1,5 @@
+@props(['kids', 'active' => -1])
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,7 +23,7 @@
         <ul class="children">
             <hr></hr>
             @foreach($kids as $kid)
-            <li class="child-button">
+            <li class="child-button {{ $active == $kid->id ? 'active' : '' }}">
                 <a href="/kids/{{ $kid->id }}" class="child"><img src="{{ asset('img/empty.jpg') }}" width="28px" height="28px">{{ $kid->name }}</a>
                 <a href="/kids/{{ $kid->id }}/allergies" class="edit-child"><img src="{{ asset('img/edit.svg') }}"></a>
             </li>

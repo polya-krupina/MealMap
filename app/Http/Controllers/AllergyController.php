@@ -26,8 +26,7 @@ class AllergyController extends Controller
             'product'=> 'required',
             'kid' => 'required'
         ]);
-
-        Kid::find( $attributes['kid'])->allergies()->detach($attributes['product']);
+        Kid::find($attributes['kid'])->allergies()->detach($attributes['product']);
         return back()->with('success','Удалено!');
     }
 }
