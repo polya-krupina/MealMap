@@ -11,4 +11,12 @@ class Dish extends Model
 
     protected $guarded = [];
     public $timestamps = false;
+
+    public function meals(){
+        return $this->belongsToMany(MealType::class, "meal_types_dishes");
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class,"dishes_products");
+    }
 }

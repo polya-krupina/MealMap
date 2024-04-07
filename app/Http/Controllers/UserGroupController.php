@@ -19,6 +19,6 @@ class UserGroupController extends Controller
         $user = auth()->user();
 
 
-        return $ways[0];
+        return $ways[$user->getRoleNames()[0]];
     }
 }

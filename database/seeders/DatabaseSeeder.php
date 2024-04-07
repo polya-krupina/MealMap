@@ -6,6 +6,7 @@ use App\Models\Dish;
 use App\Models\Group;
 use App\Models\Kid;
 use App\Models\Kindergarten;
+use App\Models\MealType;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,14 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+    function createMealType($name, $time){
+        $mealType = new MealType();
+        $mealType->name = $name;
+        $mealType->time = $time;
+        echo $mealType;
+        $mealType->save();
+    }
+
     public function run()
     {
         // \App\Models\User::factory(10)->create();
@@ -47,8 +56,6 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
-        $dishes = Dish::factory(20)->create();
-
         $products = Product::factory(10)->create();
 
         $kids->each(function ($kid) use ($products) {
@@ -56,5 +63,26 @@ class DatabaseSeeder extends Seeder
                 $products->random(rand(0, 2))->pluck('id')->toArray()
             );
         });
+
+        function createMealType($name, $time){
+            $mealType = new MealType();
+            $mealType->name = $name;
+            $mealType->time = $time;
+            $mealType->save();
+        }
+
+        createMealType('Завтрак', '08:30:00');
+        createMealType('Второй Завтрак', '11:00:00');
+        createMealType('Обед', '13:00:00');
+        createMealType('Полдник', '15:30:00');
+        
+        // $mealsTypes = MealType::all();
+
+        // $dishes = Dish::factory(20)->create()
+        //     ->each(function(Dish $dish) use ($mealsTypes) {
+        //         $dish->meals()->attach(
+        //             $mealsTypes->random(rand(1, 4))->pluck('id')->toArray()
+        //             );
+        //     }); 
     }
 }
