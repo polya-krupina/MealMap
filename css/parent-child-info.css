@@ -8,8 +8,39 @@
     right: 0;
     background-color: var(--white-background);
 }
+.avatar-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 125px;
+}
 .profile-img{
     border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+}
+#change-avatar{
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.10);
+    background-image: url(../img/edit-number-hover.svg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    cursor: pointer;
+    /*display: none;*/
+    opacity: 0;
+    transition: 0.3s;
+}
+.profile-img:hover ~ #change-avatar,
+#change-avatar:hover{
+    /*display: block;*/
+    opacity: 1;
 }
 .child-info{
     display: flex;

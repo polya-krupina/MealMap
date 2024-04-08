@@ -39,7 +39,11 @@
 
     <section class="content">
         <div class="child-info">
-            <img class="profile-img" src="img/empty.jpg" width="125px" height="125px">
+            <div class="avatar-container">
+                <img class="profile-img" src="img/empty.jpg" width="125px" height="125px">
+                <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                <button id="change-avatar"></button>
+            </div>
             <div class="main-info">
                 <p class="child-name">Иванов Петр Александрович</p>
                 <p class="group">Группа: К-152</p>
@@ -169,6 +173,17 @@
                 });
             });
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var avatarChangeButton = document.getElementById('change-avatar');
+            var avatarInput = document.getElementById('avatar-input');
+
+            avatarChangeButton.addEventListener('click', function() {
+                avatarInput.click();
+            });
+        });
+
     </script>
 </body>
 </html>
