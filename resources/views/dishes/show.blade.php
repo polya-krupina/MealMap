@@ -41,6 +41,8 @@
         var scrollPosition = localStorage.getItem('scrollPosition');
         if (scrollPosition) {
             window.scrollTo(0, scrollPosition);
+        } else {
+            window.scrollTo(0, 0);
         }
 
         var mealLinks = document.querySelectorAll('.meal-link');

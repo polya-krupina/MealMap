@@ -17,7 +17,7 @@
         <h5>Пищевая ценность (на 100 граммов):</h5>
         <hr></hr>
         <div class="values-list">
-            <p>Калории:{{ $dish-> callories }} ккал</p>
+            <p>Калории: {{ $dish-> callories }} ккал</p>
             <p>Белки: {{ $dish->proteins }} г</p>
             <p>Жиры: {{ $dish->fats }} г</p>
             <p>Углеводы: {{ $dish->carbohydrates }} г</p>
@@ -40,5 +40,11 @@
             changeNumberForm.style.display = 'none';
             darkOverlay.style.display = 'none';
         });
+
+        darkOverlay.addEventListener('click', function() {
+                document.body.style.overflow = 'auto';
+                changeNumberForm.style.display = 'none';
+                darkOverlay.style.display = 'none';
+            });
     });
 </script>

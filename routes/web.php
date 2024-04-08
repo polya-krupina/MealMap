@@ -25,10 +25,10 @@ Route::post('sessions', [SessionController::class,'store'])->middleware('guest')
 Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 
 
-Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('auth')->name('kid');
-Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('auth');
+Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('parent')->name('kid');
+Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('parent');
 
-Route::post('allergy', [AllergyController::class,'create'])->middleware('auth');
-Route::delete('allergy', [AllergyController::class,'delete'])->middleware('auth');
+Route::post('allergy', [AllergyController::class,'create'])->middleware('parent');
+Route::delete('allergy', [AllergyController::class,'delete'])->middleware('parent');
 
 Route::get('/dishes',[DishesController::class, 'show'])->middleware('auth');

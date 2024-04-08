@@ -74,7 +74,6 @@
         allergy.addEventListener('click', function() {
             var productId = this.dataset.id;
             var kidId = getKidIdFromUri();
-            // Отправка AJAX-запроса на сервер
             axios.post('/allergy', {
                 kid_id: kidId,
                 product_id: productId
@@ -87,15 +86,15 @@
                 console.log(error);
             });
         });
-});
+    });
 
-function getKidIdFromUri() {
-    var uri = window.location.pathname;
-    var segments = uri.split('/');
-    var kidId = segments[segments.length - 2];
+    function getKidIdFromUri() {
+        var uri = window.location.pathname;
+        var segments = uri.split('/');
+        var kidId = segments[segments.length - 2];
 
-    return kidId;
-}
+        return kidId;
+    }
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -113,6 +112,11 @@ function getKidIdFromUri() {
             changeNumberForm.style.display = 'none';
             darkOverlay.style.display = 'none';
         });
+
+        darkOverlay.addEventListener('click', function() {
+                changeNumberForm.style.display = 'none';
+                darkOverlay.style.display = 'none';
+            });
     });
 </script>
 <script>
