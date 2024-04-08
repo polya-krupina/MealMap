@@ -13,11 +13,11 @@ class CreateMealTypesDishesTable extends Migration
      */
     public function up()
     {
-        Schema::create('meal_types_dishes', function (Blueprint $table) {
-            $table->foreignId('dish_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
-            $table->primary(['dish_id','meal_type_id']);
-        });
+        // Schema::create('meal_types_dishes', function (Blueprint $table) {
+        //     $table->foreignId('dish_id')->constrained()->cascadeOnDelete();
+        //     $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
+        //     $table->primary(['dish_id','meal_type_id']);
+        // });
     }
 
     /**

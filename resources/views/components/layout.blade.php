@@ -31,7 +31,7 @@
             @endforeach
         </ul>
         <ul class="buttons">
-            <hr></hr><li><a href="/dishes" class="button" width="22" height="21"><img src="{{ asset('img/monthly menu.svg') }}"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="/dishes" class="button {{ $active == "dishes" ? 'active' : '' }}" width="22" height="21"><img src="{{ asset('img/monthly menu.svg') }}"><span>Меню на месяц</span></a></li>
             <hr></hr><li><a href="#" class="button"><img src="{{ asset('img/my templates.svg') }}"><span>Мои шаблоны</span></a></li>
             <hr></hr><li><a href="#" class="button"><img src="{{ asset('img/payment.svg') }}"><span>Оплата</span></a></li>
             <hr></hr><li><a href="/logout" class="button"><img src="{{ asset('img/exit.svg') }}"><span>Выход</span></a></li>

@@ -22,6 +22,7 @@ class CreateDishesTable extends Migration
             $table->integer('fats')->nullable(false);
             $table->integer('carbohydrates')->nullable(false);
             $table->integer('callories')->nullable(false);
+            $table->foreignId('meal_type_id')->nullable(true);
         });
     }
 

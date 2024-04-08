@@ -76,13 +76,18 @@ class DatabaseSeeder extends Seeder
         createMealType('Обед', '13:00:00');
         createMealType('Полдник', '15:30:00');
         
-        // $mealsTypes = MealType::all();
+        $mealsTypes = MealType::all();
 
-        // $dishes = Dish::factory(20)->create()
-        //     ->each(function(Dish $dish) use ($mealsTypes) {
-        //         $dish->meals()->attach(
-        //             $mealsTypes->random(rand(1, 4))->pluck('id')->toArray()
-        //             );
-        //     }); 
+        for( $i = 0; $i < count($mealsTypes); $i++ ){
+            $dishes = Dish::factory(10)
+                ->create([
+                    'meal_type_id' => $mealsTypes[$i]->id
+                ])
+                ->each(function ($dish) use ($products) {
+                    $dish->products()->attach(
+                        $products->random(rand(4, 6))->pluck('id')->toArray()
+                    );
+                });  
+        };
     }
 }
