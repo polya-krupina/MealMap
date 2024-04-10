@@ -4,7 +4,6 @@ use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
-use App\Http\Controllers\SmsController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;   
 
@@ -19,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [UserGroupController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('login', [SessionController::class,'login'])->middleware('guest')->name('login');

@@ -175,9 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //nexmo service providers...
-        Nexmo\Laravel\NexmoServiceProvider::class
-
     ],
 
     /*
