@@ -22,5 +22,4 @@ class MustBeAdmin
         
         return $next($request);
     }
-    }
 }

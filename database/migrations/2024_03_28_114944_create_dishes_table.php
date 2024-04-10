@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -22,7 +23,7 @@ class CreateDishesTable extends Migration
             $table->integer('fats')->nullable(false);
             $table->integer('carbohydrates')->nullable(false);
             $table->integer('callories')->nullable(false);
-            $table->foreignId('meal_type_id')->nullable(true);
+            $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
         });
     }
 

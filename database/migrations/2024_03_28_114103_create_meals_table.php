@@ -15,7 +15,8 @@ class CreateMealsTable extends Migration
     {
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // надо будет поменять, это совсем не правильно так делать
+            $table->string('name'); 
+            $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
         });
     }
 

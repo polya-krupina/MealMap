@@ -61,12 +61,14 @@
     <div id="dark-overlay"></div>
     <div id="change-number-form">
         <button id="close-change-number"></button>
-        <label class="form-label">Изменение номера телефона</label>
-        <div class="input-line">
-            <input type="text" class="form-input" placeholder=" ">
-            <p class="number-input-text">Введите номер телефона</p>
-        </div>
-        <button type="submit" class="send-code">Отправить код</button>
+        <form action="POST" action="/change-phone">
+            <label class="form-label">Изменение номера телефона</label>
+            <div class="input-line">
+                <input type="text" class="form-input" placeholder=" ">
+                <p class="number-input-text">Введите номер телефона</p>
+            </div>
+            <button type="submit" class="send-code">Отправить код</button>
+        </form>
     </div>
 </section>
 <script>

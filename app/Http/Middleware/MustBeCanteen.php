@@ -22,5 +22,4 @@ class MustBeCanteen
         
         return $next($request);
     }
-    }
 }

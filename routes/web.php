@@ -4,8 +4,10 @@ use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\UserGroupController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;   
+
 
 /*
 |--------------------------------------------------------------------------

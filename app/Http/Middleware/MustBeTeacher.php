@@ -22,5 +22,4 @@ class MustBeTeacher
         
         return $next($request);
     }
-    }
 }

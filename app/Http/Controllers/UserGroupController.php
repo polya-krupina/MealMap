@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Unisender\ApiWrapper\UnisenderApi;
 
 class UserGroupController extends Controller
 {
@@ -17,8 +17,7 @@ class UserGroupController extends Controller
         ];
         
         $user = auth()->user();
-
-
+        
         return $ways[$user->getRoleNames()[0]];
     }
 }
