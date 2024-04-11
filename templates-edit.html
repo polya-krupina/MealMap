@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/parent.css">
+    <link rel="stylesheet" href="css/templates.css">
+    <link rel="stylesheet" href="css/parent-day-menu.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="parent-default.html" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <span id="my-children">Мои дети</span>
+        <ul class="children">
+            <hr></hr>
+            <li class="child-button active">
+                <a href="parent-child-menu.html" class="child"><img src="img/empty.jpg" width="28px" height="28px"><span>Иванов Петр</span></a>
+                <a href="parent-child-info.html" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+            <li class="child-button">
+                <a href="parent-child-menu.html" class="child"><img src="img/empty.jpg" width="28px" height="28px">Иванов Иван</a>
+                <a href="parent-child-info.html" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="parent-month-menu.html" class="button" width="22" height="21"><img src="img/monthly menu.svg"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/my templates.svg"><span>Мои шаблоны</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/payment.svg"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="page-content">
+        <div id="week-choice">
+            <a href="#" class="change-week"><img src="img/left.svg" onmouseover="this.src='img/leftHover.svg';" onmouseout="this.src='img/left.svg';" width="26px"></a>
+            <span class="week-info">Все шаблоны</span>
+        </div>
+        <div id="edit-buttons">
+            <div id="tamplate-name">
+                <input type="text" id="tamplate-name-input" placeholder=" ">
+                <label id="tamplate-name-label">Рыбный день</label>
+            </div>
+            <button type="submit" id="save-template">
+                Изменить
+            </button>
+        </div>
+        <div id="template-menu">
+            <div class="meal-info">
+                <h1>Завтрак</h1>
+                <div class="add-dish">
+                    <div class="search-container">
+                        <input type="search" class="search-line" placeholder=" ">
+                        <label class="search-label">
+                            <img src="img/add.svg">
+                            <p>Добавить блюдо ...</p>
+                        </label>
+                    </div>
+                    <div class="dishes-choice">
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Яичница</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Блины</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Паста с томатами</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chosen-dishes">
+                    <div class="dish-card">
+                        <button class="remove-dish"></button>
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h2>Яичница</h2></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-info">
+                <h1>Второй завтрак</h1>
+                <div class="add-dish">
+                    <div class="search-container">
+                        <input type="search" class="search-line" placeholder=" ">
+                        <label class="search-label">
+                            <img src="img/add.svg">
+                            <p>Добавить блюдо ...</p>
+                        </label>
+                    </div>
+                    <div class="dishes-choice">
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Яичница</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Блины</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Паста с томатами</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chosen-dishes">                    
+                    <p class="choose-dish">Выберете блюдо</p>
+                </div>
+            </div>
+            <div class="meal-info">
+                <h1>Обед</h1>
+                <div class="add-dish">
+                    <div class="search-container">
+                        <input type="search" class="search-line" placeholder=" ">
+                        <label class="search-label">
+                            <img src="img/add.svg">
+                            <p>Добавить блюдо ...</p>
+                        </label>
+                    </div>
+                    <div class="dishes-choice">
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Яичница</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Блины</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Паста с томатами</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chosen-dishes">
+                    <div class="dish-card">
+                        <button class="remove-dish"></button>
+                        <div class="dish-img"><img src="img/pancakes.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h2>Яичница</h2></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-info">
+                <h1>Полдник</h1>
+                <div class="add-dish">
+                    <div class="search-container">
+                        <input type="search" class="search-line" placeholder=" ">
+                        <label class="search-label">
+                            <img src="img/add.svg">
+                            <p>Добавить блюдо ...</p>
+                        </label>
+                    </div>
+                    <div class="dishes-choice">
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Яичница</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Блины</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                        <div class="dish-card">
+                            <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                            <div class="dish-info">
+                                <div class="main-dish-info">
+                                    <button class="open-info"><h2>Паста с томатами</h2></button>
+                                    <p class="price">200 ₽</p>
+                                </div>
+                                <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chosen-dishes">
+                    <div class="dish-card">
+                        <button class="remove-dish"></button>
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h2>Яичница</h2></button>
+                                <p class="price">200 ₽</p>
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="dark-overlay"></div>
+    <div id="dish-info-card">
+        <button id="close-card"></button>
+        <div class="main-dish-info">            
+            <h4>Яичница</h4>
+            <p class="price">200 ₽</p>
+        </div>
+        <div class="dish-img-big"><img src="img/fried-eggs.png"></div>
+        <div class="composition-big">
+            <h5>Состав:</h5>
+            <hr></hr>
+            <p class="composition-text">
+                Яйцо куриное, огурец, хлеб белый, масло, соль,  перец 
+            </p>
+        </div>
+        <div class="nutritional-value">
+            <h5>Пищевая ценность (на 100 граммов яичницы):</h5>
+            <hr></hr>
+            <div class="values-list">
+                <p>Калории: 150-200 ккал</p>
+                <p>Белки: 10-15 г</p>
+                <p>Жиры: 10-15 г</p>
+                <p>Углеводы: 1-3 г</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var openDishCards = document.querySelectorAll('.open-info');
+            var closeButton = document.getElementById('close-card');
+            var changeNumberForm = document.getElementById('dish-info-card');
+            var darkOverlay = document.getElementById('dark-overlay');
+    
+            openDishCards.forEach(function(openDishCard) {
+                openDishCard.addEventListener('click', function() {
+                    document.body.style.overflow = 'hidden';
+                    changeNumberForm.style.display = 'block';
+                    darkOverlay.style.display = 'block';
+                });
+            });
+    
+            closeButton.addEventListener('click', function() {
+                document.body.style.overflow = 'auto';
+                changeNumberForm.style.display = 'none';
+                darkOverlay.style.display = 'none';
+            });
+    
+            darkOverlay.addEventListener('click', function() {
+                document.body.style.overflow = 'auto';
+                changeNumberForm.style.display = 'none';
+                darkOverlay.style.display = 'none';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchLines = document.querySelectorAll('.search-line');
+
+            searchLines.forEach(function(searchLine) {
+                searchLine.addEventListener('input', function() {
+                    const searchText = this.value.toLowerCase().trim();
+                    const dishCards = this.closest('.add-dish').querySelectorAll('.dish-card');
+
+                    dishCards.forEach(function(dishCard) {
+                        const composition = dishCard.querySelector('.main-dish-info h2').textContent.toLowerCase();
+                        if (composition.includes(searchText)) {
+                        dishCard.style.display = 'block';
+                        } else {
+                        dishCard.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/dishes-search.js"></script>
+</body>
+</html>

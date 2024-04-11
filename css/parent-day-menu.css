@@ -80,7 +80,8 @@
     display: block;
 }
 
-#save-menu{
+#save-menu,
+#save-template{
     width: 348px;
     height: 60px;
     padding: 10px;
@@ -94,11 +95,13 @@
     line-height: normal;
     transition: 0.3s;
 }
-#save-menu:hover{
+#save-menu:hover,
+#save-template:hover{
     box-shadow: 2px 2px 10px 0px rgba(0, 255, 56, 0.50);
     background: var(--green-light);
 }
-#save-menu:active{
+#save-menu:active,
+#save-template:active{
     background: var(--grey-text);
     box-shadow: none;    
 }
