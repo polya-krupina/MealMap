@@ -8,7 +8,15 @@
         {{ $kid->id }}
     @endpush
     <div class="child-info">
-        <img class="profile-img" src="{{ asset('img/empty.jpg') }}" width="125px" height="125px">
+        <div class="avatar-container">
+            {{-- @if($kid->avatar) --}}
+            <img class="profile-img" src="{{ $kid->avatar ? asset('storage/' . $kid->avatar) : asset('img/empty.jpg')}}" width="125px" height="125px">
+            {{-- @else
+            <img class="profile-img" src="{{asset('img/empty.jpg') }}" width="125px" height="125px">
+            @endif --}}
+            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+            <button id="change-avatar"></button>
+        </div>
         <div class="main-info">
             <p class="child-name">{{ $kid->name }}</p>
             <p class="group">Группа: {{ $kid->group->name }}</p>
@@ -164,5 +172,34 @@
             });
         });
     });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var avatarChangeButton = document.getElementById('change-avatar');
+        var avatarInput = document.getElementById('avatar-input');
+
+        avatarChangeButton.addEventListener('click', function() {
+            avatarInput.click();
+        });
+
+        avatarInput.addEventListener('change', function(){
+            let formData = new FormData();
+            formData.append('file', avatarInput.files[0]);
+            formData.append('kid_id', getKidIdFromUri());
+            axios.post('/upload-avatar', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+            })
+            .then(response => {
+                console.log(response);
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        });
+    });
+
 </script>
 </x-layout>

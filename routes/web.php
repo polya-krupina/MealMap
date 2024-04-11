@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
+use App\Http\Controllers\KidController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;   
+
 
 
 /*
@@ -32,3 +34,5 @@ Route::post('allergy', [AllergyController::class,'create'])->middleware('parent'
 Route::delete('allergy', [AllergyController::class,'delete'])->middleware('parent');
 
 Route::get('/dishes',[DishesController::class, 'show'])->middleware('auth');
+
+Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');

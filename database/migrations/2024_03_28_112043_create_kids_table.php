@@ -18,6 +18,7 @@ class CreateKidsTable extends Migration
             $table->string('name')->nullable(false);
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('group_id')->constrained()->cascadeOnDelete();
+            $table->string('avatar')->nullable();
         });
     }
 
