@@ -121,6 +121,7 @@
     box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
     padding: 0 19px;
     position: relative;
+    transition: 0.3s;
 }
 h1{
     color: var(--black-text);
@@ -148,7 +149,7 @@ h1{
     line-height: normal;
     border-radius: var(--border-radius);
     border: 1px solid var(--grey-border);
-    background: transparent;
+    background: var(--white-background);
     z-index: 1;
 }
 .search-label{

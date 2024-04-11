@@ -1,23 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const searchContainers = document.querySelectorAll('.add-dish');
-    var darkOverlay = document.getElementById('dark-overlay');
+    const searchContainers = document.querySelectorAll('.meal-info');
 
-    searchContainers.forEach(function(searchContainer) {
-        const searchLine = searchContainer.querySelector('.search-line');
-        const dishesChoice = searchContainer.querySelector('.dishes-choice');
-        const searchLineContainer = searchContainer.querySelector('.search-container');
+    searchContainers.forEach(function(mealInfo) {
+        const searchLine = mealInfo.querySelector('.search-line');
+        const dishesChoice = mealInfo.querySelector('.dishes-choice');
+        const searchLineContainer = mealInfo.querySelector('.search-container');
+        const darkOverlay = document.getElementById('dark-overlay');
 
         searchLine.addEventListener('focus', function() {
+            mealInfo.style.backgroundColor = '#EAEAEA';
             dishesChoice.style.display = 'flex';
             dishesChoice.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
             searchLineContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
         });
 
         document.addEventListener('click', function(event) {
-            if (!searchContainer.contains(event.target) && !dishesChoice.contains(event.target) && !darkOverlay.contains(event.target)) {
+            if (!searchLineContainer.contains(event.target) && !dishesChoice.contains(event.target) && !darkOverlay.contains(event.target)) {
+                mealInfo.style.backgroundColor = '#F6F6F6';
                 dishesChoice.style.display = 'none';
-            dishesChoice.style.boxShadow = 'none';
-            searchLineContainer.style.boxShadow = 'none';
+                dishesChoice.style.boxShadow = 'none';
+                searchLineContainer.style.boxShadow = 'none';
             }
         });
     });
