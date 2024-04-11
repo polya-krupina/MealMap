@@ -45,7 +45,7 @@
     border: 0;
     padding: 0 30px;
     border-radius: 16px;
-    border: 1px solid var(---_, #D4D4D4);
+    border: 1px solid var(--grey-border);
     outline: none;
     transition: 0.3s;
 }
@@ -57,4 +57,7 @@
 #tamplate-name-input:focus ~ #tamplate-name-label,
 #tamplate-name-input:not(:placeholder-shown) ~ #tamplate-name-label{
     opacity: 0;
+}
+.new-template #tamplate-name-label{
+    color: var(--grey-text);
 }
