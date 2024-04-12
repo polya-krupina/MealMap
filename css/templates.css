@@ -81,8 +81,8 @@
 }
 #create-template{
     width: 348px;
-    height: 60px;
-    padding: 10px;
+    height: 40px;
+    padding-top: 20px;
     border-radius: var(--border-radius);
     background: var(--green-color);
     border: none;
@@ -174,7 +174,8 @@
     justify-content: space-between;
     display: none;
 }
-.template-oprions-list > p{
+.template-oprions-list > p,
+.template-oprions-list > a{
     color: #000;
     font-size: 16px;
     font-style: normal;
@@ -183,7 +184,8 @@
     transition: 0.3s;
     cursor: default;
 }
-.template-oprions-list > p:hover{
+.template-oprions-list > p:hover,
+.template-oprions-list > a:hover{
     color: var(--green-color);
 }
 .template-oprions-list > hr{
