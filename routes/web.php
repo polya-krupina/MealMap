@@ -3,10 +3,13 @@
 use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\KidController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;   
+
 
 
 
@@ -30,9 +33,16 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('parent')->name('kid');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('parent');
 
+Route::get('/templates', [TemplatesController::class, 'show'])->middleware('parent');
+Route::get('/templates/create', [TemplatesController::class, 'create'])->middleware('parent');
+Route::post('/templates/checkout', [TemplatesController::class, 'check'])->middleware('parent');
+Route::post('/templates/save', [TemplatesController::class, 'save'])->middleware('parent');
+
+Route::post('meals/add', [MealController::class, 'add']);
+
 Route::post('allergy', [AllergyController::class,'create'])->middleware('parent');
 Route::delete('allergy', [AllergyController::class,'delete'])->middleware('parent');
 
-Route::get('/dishes',[DishesController::class, 'show'])->middleware('auth');
+Route::get('/dishes',[DishesController::class, 'show'])->middleware('parent');
 
 Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');

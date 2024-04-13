@@ -5,6 +5,8 @@
     <hr></hr>
     <div class="dishes-list">
         @foreach ($dishes as $dish)
-            <x-dish-card :dish="$dish"/>
+            <x-dish-card :dish="$dish">
+                <x-slot name="url">dishes</x-slot>
+            </x-dish-card>
         @endforeach
 </div>

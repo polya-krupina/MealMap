@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function kids(){
         return $this->hasMany(Kid::class);
     }
+
+    public function presets(){
+        return $this->hasMany(Preset::class);
+    }
 }

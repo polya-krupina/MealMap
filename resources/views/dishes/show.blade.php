@@ -28,42 +28,45 @@
     </section>
 </section>
 
+<div id="dark-overlay"></div>
 @if(request('id'))
     <x-opened-dish-card :dish="$found"/>
 @endif
 
-<script>
-    window.addEventListener('beforeunload', function () {
-        localStorage.setItem('scrollPosition', window.scrollY);
-    });
+@push('scripts')
+    <script>
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var scrollPosition = localStorage.getItem('scrollPosition');
-        if (scrollPosition) {
-            window.scrollTo(0, scrollPosition);
-        } else {
-            window.scrollTo(0, 0);
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var scrollPosition = localStorage.getItem('scrollPosition');
+            if (scrollPosition) {
+                window.scrollTo(0, scrollPosition);
+            } else {
+                window.scrollTo(0, 0);
+            }
 
-        var mealLinks = document.querySelectorAll('.meal-link');
+            var mealLinks = document.querySelectorAll('.meal-link');
 
-        mealLinks.forEach(function(link) {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
+            mealLinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
 
-                var targetId = this.getAttribute('href');
-                var targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    var offsetTop = targetElement.offsetTop - 200;
+                    var targetId = this.getAttribute('href');
+                    var targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        var offsetTop = targetElement.offsetTop - 200;
 
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
+@endpush
 </x-layout>

@@ -9,11 +9,7 @@
     @endpush
     <div class="child-info">
         <div class="avatar-container">
-            {{-- @if($kid->avatar) --}}
             <img class="profile-img" src="{{ $kid->avatar ? asset('storage/' . $kid->avatar) : asset('img/empty.jpg')}}" width="125px" height="125px">
-            {{-- @else
-            <img class="profile-img" src="{{asset('img/empty.jpg') }}" width="125px" height="125px">
-            @endif --}}
             <input type="file" id="avatar-input" accept="image/*" style="display: none;">
             <button id="change-avatar"></button>
         </div>
@@ -79,127 +75,129 @@
         </form>
     </div>
 </section>
-<script>
-    document.querySelectorAll('.allergy').forEach(function(allergy) {
-        allergy.addEventListener('click', function() {
-            var productId = this.dataset.id;
-            var kidId = getKidIdFromUri();
-            axios.post('/allergy', {
-                kid_id: kidId,
-                product_id: productId
-            })
-            .then(function(response) {
-                console.log(response);
-                location.reload();
-            })
-            .catch(function(error) {
-                console.log(error);
+@push('scripts')
+    <script>
+        document.querySelectorAll('.allergy').forEach(function(allergy) {
+            allergy.addEventListener('click', function() {
+                var productId = this.dataset.id;
+                var kidId = getKidIdFromUri();
+                axios.post('/allergy', {
+                    kid_id: kidId,
+                    product_id: productId
+                })
+                .then(function(response) {
+                    console.log(response);
+                    location.reload();
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
             });
         });
-    });
 
-    function getKidIdFromUri() {
-        var uri = window.location.pathname;
-        var segments = uri.split('/');
-        var kidId = segments[segments.length - 2];
+        function getKidIdFromUri() {
+            var uri = window.location.pathname;
+            var segments = uri.split('/');
+            var kidId = segments[segments.length - 2];
 
-        return kidId;
-    }
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var changeNumberButton = document.getElementById('change-number');
-        var closeChangeNumberButton = document.getElementById('close-change-number');
-        var changeNumberForm = document.getElementById('change-number-form');
-        var darkOverlay = document.getElementById('dark-overlay');
+            return kidId;
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var changeNumberButton = document.getElementById('change-number');
+            var closeChangeNumberButton = document.getElementById('close-change-number');
+            var changeNumberForm = document.getElementById('change-number-form');
+            var darkOverlay = document.getElementById('dark-overlay');
 
-        changeNumberButton.addEventListener('click', function() {
-            changeNumberForm.style.display = 'flex';
-            darkOverlay.style.display = 'block';
-        });
+            changeNumberButton.addEventListener('click', function() {
+                changeNumberForm.style.display = 'flex';
+                darkOverlay.style.display = 'block';
+            });
 
-        closeChangeNumberButton.addEventListener('click', function() {
-            changeNumberForm.style.display = 'none';
-            darkOverlay.style.display = 'none';
-        });
-
-        darkOverlay.addEventListener('click', function() {
+            closeChangeNumberButton.addEventListener('click', function() {
                 changeNumberForm.style.display = 'none';
                 darkOverlay.style.display = 'none';
             });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var searchLine = document.getElementById('search-line');
-        var searchList = document.getElementById('search-list');
-        var searchContainer = document.getElementById('search-container');
 
-        function handleFocus() {
-            searchList.style.display = 'flex';
-            searchList.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
-            searchContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
-        };
-
-        function handleBlur() {
-            searchList.style.display = 'none';
-            searchList.style.boxShadow = 'none';
-            searchContainer.style.boxShadow = 'none';
-        };
-        searchLine.addEventListener('focus', handleFocus);
-
-            document.addEventListener('click', function(event) {
-                if (event.target !== searchList && !searchList.contains(event.target) && event.target !== searchLine) {
-                    handleBlur();
-                }
+            darkOverlay.addEventListener('click', function() {
+                    changeNumberForm.style.display = 'none';
+                    darkOverlay.style.display = 'none';
+                });
         });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var searchLine = document.getElementById('search-line');
-        var searchListItems = document.querySelectorAll('#search-list .allergy');
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchLine = document.getElementById('search-line');
+            var searchList = document.getElementById('search-list');
+            var searchContainer = document.getElementById('search-container');
 
-        searchLine.addEventListener('input', function() {
-            var searchTerm = searchLine.value.toLowerCase();
-            searchListItems.forEach(function(item) {
-                var textContent = item.textContent.toLowerCase();
-                if (textContent.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+            function handleFocus() {
+                searchList.style.display = 'flex';
+                searchList.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
+                searchContainer.style.boxShadow = '2px 2px 20px 0px rgba(0, 0, 0, 0.10)';
+            };
+
+            function handleBlur() {
+                searchList.style.display = 'none';
+                searchList.style.boxShadow = 'none';
+                searchContainer.style.boxShadow = 'none';
+            };
+            searchLine.addEventListener('focus', handleFocus);
+
+                document.addEventListener('click', function(event) {
+                    if (event.target !== searchList && !searchList.contains(event.target) && event.target !== searchLine) {
+                        handleBlur();
+                    }
             });
         });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var avatarChangeButton = document.getElementById('change-avatar');
-        var avatarInput = document.getElementById('avatar-input');
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchLine = document.getElementById('search-line');
+            var searchListItems = document.querySelectorAll('#search-list .allergy');
 
-        avatarChangeButton.addEventListener('click', function() {
-            avatarInput.click();
-        });
-
-        avatarInput.addEventListener('change', function(){
-            let formData = new FormData();
-            formData.append('file', avatarInput.files[0]);
-            formData.append('kid_id', getKidIdFromUri());
-            axios.post('/upload-avatar', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-            })
-            .then(response => {
-                console.log(response);
-                location.reload();
-            })
-            .catch(error => {
-                console.error(error);
+            searchLine.addEventListener('input', function() {
+                var searchTerm = searchLine.value.toLowerCase();
+                searchListItems.forEach(function(item) {
+                    var textContent = item.textContent.toLowerCase();
+                    if (textContent.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var avatarChangeButton = document.getElementById('change-avatar');
+            var avatarInput = document.getElementById('avatar-input');
 
-</script>
+            avatarChangeButton.addEventListener('click', function() {
+                avatarInput.click();
+            });
+
+            avatarInput.addEventListener('change', function(){
+                let formData = new FormData();
+                formData.append('file', avatarInput.files[0]);
+                formData.append('kid_id', getKidIdFromUri());
+                axios.post('/upload-avatar', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+                })
+                .then(response => {
+                    console.log(response);
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
+        });
+
+    </script>
+@endpush
 </x-layout>

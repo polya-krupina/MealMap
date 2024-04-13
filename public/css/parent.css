@@ -1,7 +1,7 @@
-/*parent-child*/
+/*parent-child month menu*/
 .page-content{
     position:absolute;
-    padding-top: 51px;
+    padding-top: 50px;
     padding-left: 30px;
     top: 0;
     bottom: 0;
@@ -27,16 +27,17 @@
     margin-top: 24px;
 }
 .day{
-    color: var(--black-text);
+    color: var(--grey-text);
     font-size: 24px;
     font-weight: 500;
 }
-.day:hover{
+.menu-selected{
+    color: var(--black-text);
+}
+.day:hover,
+.active-day{
     color: var(--green-color);
     border-bottom: 2px solid var(--green-color);
-}
-.menu-selected{
-    color: var(--grey-text);
 }
 .change-week{
     height: 26px;
@@ -111,6 +112,7 @@ td{
     line-height: normal;
     width: 25%;
 }
+
 /*parent-default*/
 .logo-big-container{    
     position:absolute;
@@ -126,3 +128,4 @@ td{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+

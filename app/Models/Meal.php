@@ -16,4 +16,8 @@ class Meal extends Model
     public function dishes(){
         return $this->belongsToMany(Dish::class, 'dishes_meals');
     }
+
+    public function meal_type(){
+        return $this->belongsTo(MealType::class);
+    }
 }

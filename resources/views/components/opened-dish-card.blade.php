@@ -1,6 +1,6 @@
 @props(['dish'])
 
-<div id="dark-overlay"></div>
+{{-- <div id="dark-overlay"></div> --}}
 <div id="dish-info-card">
     <button id="close-card"></button>
     <div class="main-dish-info">            

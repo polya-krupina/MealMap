@@ -16,6 +16,8 @@ class CreatePresetsTable extends Migration
         Schema::create('presets', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->nullable(true);
+            $table->boolean('saved')->default(false);
         });
     }
 

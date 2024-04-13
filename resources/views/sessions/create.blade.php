@@ -44,24 +44,26 @@
         </div>
     </div>
 </div>
-<script>
-    const passwordInput = document.getElementById("password-input");
-    const toggleButton = document.getElementById("toggle-button");
-    const icon = toggleButton.querySelector("img");
-    toggleButton.addEventListener("click", function() {
-        event.preventDefault();
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            icon.src = "img/openedHover.svg";
-            icon.onmouseover = function() { this.src = "img/openedHover.svg"; };
-            icon.onmouseout = function() { this.src = "img/opened.svg"; };
-        } else {
-            passwordInput.type = "password";
-            icon.src = "img/closedHover.svg";
-            icon.onmouseover = function() { this.src = "img/closedHover.svg"; };
-            icon.onmouseout = function() { this.src = "img/closed.svg"; };
-        }
-    });
-</script>
+@push('scripts')
+    <script>
+        const passwordInput = document.getElementById("password-input");
+        const toggleButton = document.getElementById("toggle-button");
+        const icon = toggleButton.querySelector("img");
+        toggleButton.addEventListener("click", function() {
+            event.preventDefault();
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.src = "img/openedHover.svg";
+                icon.onmouseover = function() { this.src = "img/openedHover.svg"; };
+                icon.onmouseout = function() { this.src = "img/opened.svg"; };
+            } else {
+                passwordInput.type = "password";
+                icon.src = "img/closedHover.svg";
+                icon.onmouseover = function() { this.src = "img/closedHover.svg"; };
+                icon.onmouseout = function() { this.src = "img/closed.svg"; };
+            }
+        });
+    </script>
+@endpush
 </body>
 </html>

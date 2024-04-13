@@ -16,6 +16,7 @@ class CreateMealsTable extends Migration
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('preset_id')->constrained()->cascadeOnDelete();
         });
     }
 
