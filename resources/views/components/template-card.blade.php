@@ -5,11 +5,11 @@
         <h2>{{ $template->name }}</h2>
         <button class="template-options"></button>
         <div class="template-oprions-list">
-            <a href="/templates/id/edit"></a><p>Изменить шаблон</p>
+            <a href="/templates/{{ $template->id }}/edit"><p>Изменить шаблон</p></a>
             <hr></hr>
-            <form action="/templates/id/delete" method="post">
+            <form action="/templates/{{ $template->id }}/delete" method="post">
                 @csrf
-                <button type="submit">Удалить шаблон</button>
+                <button type="submit" class="delete-template">Удалить шаблон</button>
             </form>
         </div>
     </div>

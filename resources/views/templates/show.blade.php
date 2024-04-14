@@ -10,7 +10,7 @@
     </div>
     ы
     <div id="my-templates-list">
-        @foreach (auth()->user()->presets as $template)
+        @foreach ($presets as $template)
             <x-template-card :template="$template"></x-template-card>
         @endforeach
     </div>
@@ -20,7 +20,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const templateOptionsButtons = document.querySelectorAll('.template-options');
 
-            templateOptionsButtons.forEach(function(button) {
+            templateOptionsButtons.forEach(function(button) {   
                 button.addEventListener('click', function(event) {
                     const optionsList = this.nextElementSibling;
                     if (optionsList.style.display === 'none' || optionsList.style.display === '') {

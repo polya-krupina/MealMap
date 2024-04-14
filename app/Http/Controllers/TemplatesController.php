@@ -9,7 +9,8 @@ class TemplatesController extends Controller
 {
     public function show(){
         return view("templates.show", [
-            'kids' => auth()->user()->kids
+            'kids' => auth()->user()->kids,
+            'presets' => auth()->user()->presets->where('saved', 1)
         ]);
     }
 
@@ -32,12 +33,13 @@ class TemplatesController extends Controller
 
     public function check(Request $request){
         $preset = Preset::find($request->id);
-
+        $deleted = false;
         if (! $preset->saved){
             $preset->delete();
+            $deleted = true;
         }
 
-        return redirect('/');
+        return $deleted;
     }
 
     public function save(Request $request){
@@ -47,5 +49,19 @@ class TemplatesController extends Controller
         $preset->save();
 
         return redirect('/');   
+    }
+
+    public function destroy(Preset $preset){
+        $preset->delete();
+
+        return back()->with('success','');
+    }
+
+    public function edit(Preset $preset){
+        return view('templates.edit', [
+            'preset' => $preset,
+            'kids' => auth()->user()->kids,
+            'dishes' => Dish::all()->groupBy('meal_type_id'),
+        ]);
     }
 }

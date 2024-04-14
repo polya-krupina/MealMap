@@ -175,7 +175,8 @@
     display: none;
 }
 .template-oprions-list > p,
-.template-oprions-list > a{
+.template-oprions-list > a,
+.delete-template{
     color: #000;
     font-size: 16px;
     font-style: normal;
@@ -184,8 +185,13 @@
     transition: 0.3s;
     cursor: default;
 }
+.delete-template{
+    background-color: transparent;
+    border: none;
+}
 .template-oprions-list > p:hover,
-.template-oprions-list > a:hover{
+.template-oprions-list > a:hover,
+.delete-template:hover{
     color: var(--green-color);
 }
 .template-oprions-list > hr{

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const dishesChoice = mealInfo.querySelector('.dishes-choice');
         const searchLineContainer = mealInfo.querySelector('.search-container');
         const darkOverlay = document.getElementById('dark-overlay');
-        console.log('Я работаю');
 
         searchLine.addEventListener('focus', function() {
             mealInfo.style.backgroundColor = '#EAEAEA';
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click', function(event) {
             if (!searchLineContainer.contains(event.target) && !dishesChoice.contains(event.target) && !darkOverlay.contains(event.target)) {
                 mealInfo.style.backgroundColor = '#F6F6F6';
-                console.log('АЛО, Я РАБОТАЮ')
                 dishesChoice.style.display = 'none';
                 dishesChoice.style.boxShadow = 'none';
                 searchLineContainer.style.boxShadow = 'none';

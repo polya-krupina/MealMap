@@ -80,33 +80,6 @@
                     console.log(error);
                 });
         }
-       window.addEventListener('beforeunload', function (e) {
-            var confirmationMessage = 'Are you sure you want to leave?';  // Set a custom confirmation message
-            if (saved || reload_by_adding){
-                return false;
-            }
-
-            e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-            return confirmationMessage;              // Gecko, WebKit, Chrome <34
-        });
-
-        function checkout(){
-            if (!reload_by_adding){
-                var id = document.getElementsByName('preset_id')[0].value;
-                data = new FormData(),
-                token = $('meta[name="csrf-token"]').attr('content');
-                data.append("_token", token);
-                data.append('id', id);
-                navigator.sendBeacon('/templates/checkout', data);
-            }
-        }
-
-        window.addEventListener('unload',checkout);
-
-        function doSomethingCool(event) {
-            event.preventDefault(); // Предотвращаем перезагрузку страницы
-            alert('Привет от JavaScript!');
-        }
 
         document.querySelectorAll('.open-info').forEach(function(a){
             a.addEventListener('click', (e) => {
