@@ -45,13 +45,19 @@
             <span class="week-info">Все шаблоны</span>
         </div>
         <div id="edit-buttons">
-            <div id="tamplate-name">
-                <input type="text" id="tamplate-name-input" placeholder=" ">
-                <label id="tamplate-name-label">Название шаблона ...</label>
-            </div>
-            <button type="submit" id="save-template">
-                Сохранить
-            </button>
+            <form action="/templates/save" method="post">
+                <input type="hidden" name="breakfast">
+                <input type="hidden" name="second_breakfast">
+                <input type="hidden" name="dinner">
+                <input type="hidden" name="half_day">
+                <div id="tamplate-name">
+                    <input type="text" id="tamplate-name-input" placeholder=" ">
+                    <label id="tamplate-name-label">Название шаблона ...</label>
+                </div>
+                <button type="submit" id="save-template" onclick="alert('Сохранено'); saved = true;">
+                    Сохранить
+                </button>
+            </form>
         </div>
         <div id="template-menu">
             <div class="meal-info">
