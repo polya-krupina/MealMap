@@ -3,8 +3,6 @@
         <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
         <link rel="stylesheet" href="{{ asset('css/templates.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
     @endpush
     <div id="week-choice">
@@ -12,101 +10,120 @@
         <span class="week-info">Все шаблоны</span>
     </div>
     <div id="edit-buttons">
-        <div id="tamplate-name">
-            <input type="text" id="tamplate-name-input" placeholder=" " value="{{ $preset->name }}">
-            <label id="tamplate-name-label">Название шаблона ...</label>
-        </div>
-        <button type="submit" id="save-template" onclick="alert('Сохранено'); save();">
-            Сохранить
-        </button>
+        <form action="/templates/save" method="post">
+            @csrf
+            <input type="hidden" name="breakfast">
+            <input type="hidden" name="second_breakfast">
+            <input type="hidden" name="dinner">
+            <input type="hidden" name="half_day">
+            <div id="tamplate-name">
+                <input type="text" name="name" id="tamplate-name-input" placeholder=" ">
+                <label id="tamplate-name-label">Название шаблона ...</label>
+            </div>
+            <button type="submit" id="save-template" onclick="alert('Сохранено'); save();">
+                Сохранить
+            </button>
+        </form>
     </div>
-    <input type="hidden" name="preset_id" value="{{ $preset->id }}">
     <div id="template-menu">
-        <x-meal-info :meal="$preset->meals[0]" :dishes="$dishes[1]">Завтрак</x-meal-info>
-        <x-meal-info :meal="$preset->meals[1]" :dishes="$dishes[2]">Второй завтрак</x-meal-info>
-        <x-meal-info :meal="$preset->meals[2]" :dishes="$dishes[3]">Обед</x-meal-info>
-        <x-meal-info :meal="$preset->meals[3]" :dishes="$dishes[4]">Полдник</x-meal-info>
+        <x-meal-info :dishes="$dishes[1]">Завтрак</x-meal-info>
+        <x-meal-info :dishes="$dishes[2]">Второй завтрак</x-meal-info>
+        <x-meal-info :dishes="$dishes[3]">Обед</x-meal-info>
+        <x-meal-info :dishes="$dishes[4]">Полдник</x-meal-info>
     </div>
     <div id="dark-overlay"></div>
-    
-    @if(request('id'))
-        <x-opened-dish-card :dish="$found"/>
-    @endif
 
 @push('scripts')
     <script>
         let saved = false;
-        let reload_by_adding = false;
-        document.addEventListener('DOMContentLoaded', function() {
-            var openDishCards = document.querySelectorAll('.open-info');
-            var closeButton = document.getElementById('close-card');
-            var changeNumberForm = document.getElementById('dish-info-card');
-            var darkOverlay = document.getElementById('dark-overlay');
+        let meals  = [
+            [],
+            [],
+            [],
+            []
+        ];
+        let counter = 0;
+        document.querySelectorAll('.meal-info').forEach((e) => {
+            let searchList = e.querySelector('.dishes-choice');
+            let chosenList = e.querySelector('.chosen-dishes');
+            let meal_id = mealDetector(e);
 
-            openDishCards.forEach(function(openDishCard) {
-                openDishCard.addEventListener('click', function() {
-                    document.body.style.overflow = 'hidden';
-                    changeNumberForm.style.display = 'block';
-                    darkOverlay.style.display = 'block';
-                });
-            });
+            
 
-            closeButton.addEventListener('click', function() {
-                document.body.style.overflow = 'auto';
-                changeNumberForm.style.display = 'none';
-                darkOverlay.style.display = 'none';
-            });
+            
+            searchList.querySelectorAll('.dish-card').forEach((el) => {
+                function add() {
+                    chosenList.insertAdjacentHTML('beforeend', el.outerHTML);
+                    searchList.removeChild(el);
+                    console.log(el);
+                    meals[meal_id].push(el.dataset.id);
+                    checkState();
+                    el.querySelector('.remove-dish').addEventListener('click', remove);
+                }
 
-            darkOverlay.addEventListener('click', function() {
-                document.body.style.overflow = 'auto';
-                changeNumberForm.style.display = 'none';
-                darkOverlay.style.display = 'none';
+                function remove(){
+                    let newEl = searchList.insertAdjacentHTML('beforeend', el.outerHTML);
+                    chosenList.removeChild(el);
+                    meals[meal_id].splice(meals.indexOf(el.dataset.id), 1);
+                    newEl.addEventListener('click' ,add);
+                    console.log(meals);
+                }
+
+                el.addEventListener('click', add);
             });
         });
+
+        function checkState(){
+            let dishes = document.querySelectorAll('.dish-card');
+
+            dishes.forEach((e) => {
+                let parent = e.closest('.chosen-dishes');
+                let button = e.querySelector('.remove-dish');
+                if (parent){
+                    button.style.display = 'block';
+                } else {
+                    button.style.display = 'none';
+                }
+            })
+        }
+
+        document.addEventListener('DOMNodeInserted', checkState);
+
+        function mealDetector(meal){
+            let value = meal.querySelector('h1').innerHTML;
+            if (value == 'Завтрак')
+                return 0;
+            else if (value == 'Второй завтрак')
+                return 1;
+            else if (value == 'Обед')
+                return 2;
+            else 
+                return 3;
+        }
     </script>
     <script>
         function save(){
             saved = true;
-            var id = document.getElementsByName('preset_id')[0].value;
-            var name = document.getElementById('tamplate-name-input').value;
-            axios.post('/templates/save', {
-                    id: id,
-                    name: name
-                })
-                .then(function(response) {
-                    console.log(response);
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
+            let breakfast = document.getElementsByName('breakfast')[0];
+            let second_breakfast = document.getElementsByName('second_breakfast')[0];
+            let dinner = document.getElementsByName('dinner')[0];
+            let half_day = document.getElementsByName('half_day')[0];
+
+            breakfast.value = meals[0];
+            second_breakfast.value = meals[1];
+            dinner.value = meals[2];
+            half_day.value = meals[3];
+            
         }
        window.addEventListener('beforeunload', function (e) {
             var confirmationMessage = 'Are you sure you want to leave?';  // Set a custom confirmation message
-            if (saved || reload_by_adding){
+            if (saved){
                 return false;
             }
 
             e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
             return confirmationMessage;              // Gecko, WebKit, Chrome <34
         });
-
-        function checkout(){
-            if (!reload_by_adding){
-                var id = document.getElementsByName('preset_id')[0].value;
-                data = new FormData(),
-                token = $('meta[name="csrf-token"]').attr('content');
-                data.append("_token", token);
-                data.append('id', id);
-                navigator.sendBeacon('/templates/checkout', data);
-            }
-        }
-
-        window.addEventListener('unload',checkout);
-
-        function doSomethingCool(event) {
-            event.preventDefault(); // Предотвращаем перезагрузку страницы
-            alert('Привет от JavaScript!');
-        }
 
         document.querySelectorAll('.open-info').forEach(function(a){
             a.addEventListener('click', (e) => {
@@ -138,27 +155,5 @@
         });
     </script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
-    <script>
-        document.querySelectorAll('.add-dish').forEach(function(menu){
-            menu.querySelectorAll('.dish-card').forEach(function(dish_card) {
-            dish_card.addEventListener('click', function() {
-                var dish_id = this.dataset.id;
-                var meal_id = this.dataset.meal;
-                reload_by_adding = true;
-                axios.post('/meals/add', {
-                    meal_id: meal_id,
-                    dish_id: dish_id
-                })
-                .then(function(response) {
-                    console.log(response);
-                    location.reload();
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
-            });
-        });
-    });
-    </script>
 @endpush
 </x-layout>

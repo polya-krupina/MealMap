@@ -1,8 +1,7 @@
-@props(['dish', 'meal' => null])
-{{-- , 'data-id'=>"{{ $dish->id }}", 'data-meal' => "{{ $meal->id }}" --}}
-<div class="dish-card" data-id="{{ $dish->id }}" data-meal={{ $meal }}>
+@props(['dish'])
+<div class="dish-card" data-id="{{ $dish->id }}">
     <div class="dish-img"><img src="{{ asset('img/fried-eggs.png') }}"></div>
-    {{ $slot }}
+    <button class="remove-dish" style="display: none;"></button>
     <div class="dish-info"> 
         <div class="main-dish-info">
             <a href="/{{ $url }}?id={{ $dish->id }}" class="open-info"><h3>{{ $dish->name }}</h3></a>

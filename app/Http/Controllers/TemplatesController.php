@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\Preset;
+use Illuminate\Database\Eloquent\Collection;
+
 class TemplatesController extends Controller
 {
     public function show(){
@@ -15,41 +17,52 @@ class TemplatesController extends Controller
     }
 
     public function create(){
-        $preset = auth()->user()->presets->where('saved', 0)->first();
-        if (!$preset){
-            $preset = new Preset();
-            $preset->name = 'Без_названия_' . count(auth()->user()->presets);
-            $preset->user_id = auth()->user()->id;
-            $preset->save();
-        }
-
         return view("templates.create", [
             'kids' => auth()->user()->kids,
-            'found' => Dish::find(request('id')),
-            'dishes' => Dish::all()->groupBy('meal_type_id'),
-            'preset' => $preset
+            'dishes' => Dish::all()->groupBy('meal_type_id')
         ]);
     }
 
-    public function check(Request $request){
-        $preset = Preset::find($request->id);
-        $deleted = false;
-        if (! $preset->saved){
-            $preset->delete();
-            $deleted = true;
+    public function save(Request $request){
+        
+        function add_dishes($collection, $dishes){
+            $collection->dishes()->attach(explode(',', $dishes));
         }
 
-        return $deleted;
-    }
+        function update_dishes($collection, $dishes){
+            $collection->dishes()->sync(explode(',', $dishes));
+        }
 
-    public function save(Request $request){
-        $preset = Preset::find($request->id);
-        $preset->name = $request->name;
-        $preset->saved = true;
+        $attributes = $request->validate([
+            'name' => 'required',
+            'breakfast' => 'required',
+            'second_breakfast' => 'required',
+            'dinner' => 'required',
+            'half_day' => 'required' 
+        ]);
+        if ($request['id']){
+            $preset = Preset::find($request['id']);
+            update_dishes($preset->meals[0], $attributes['breakfast']);
+            update_dishes($preset->meals[1], $attributes['second_breakfast']);
+            update_dishes($preset->meals[2], $attributes['dinner']);
+            update_dishes($preset->meals[3], $attributes['half_day']);
+        } else {
+            $preset = new Preset;
+            $preset->user_id = auth()->user()->id;
+            $preset->saved = 1;
+            $preset->name = $attributes['name'];
+            $preset->save();
+            add_dishes($preset->meals[0], $attributes['breakfast']);
+            add_dishes($preset->meals[1], $attributes['second_breakfast']);
+            add_dishes($preset->meals[2], $attributes['dinner']);
+            add_dishes($preset->meals[3], $attributes['half_day']);
+        }
+        $preset->name = $attributes['name'];
         $preset->save();
 
-        return redirect('/');   
+        return redirect('/templates');   
     }
+
 
     public function destroy(Preset $preset){
         $preset->delete();

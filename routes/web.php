@@ -35,7 +35,6 @@ Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->mid
 
 Route::get('/templates', [TemplatesController::class, 'show'])->middleware('parent');
 Route::get('/templates/create', [TemplatesController::class, 'create'])->middleware('parent');
-Route::post('/templates/checkout', [TemplatesController::class, 'check'])->middleware('parent');
 Route::post('/templates/save', [TemplatesController::class, 'save'])->middleware('parent');
 Route::post('/templates/{preset:id}/delete', [TemplatesController::class, 'destroy'])->middleware('parent');
 Route::get('/templates/{preset:id}/edit', [TemplatesController::class, 'edit'])->middleware('parent');
