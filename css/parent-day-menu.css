@@ -61,7 +61,10 @@ a{
     margin-bottom: 9px;
     transition: 0.3s;
 }
-#templates-list li:hover{
+#templates-list a{
+    transition: 0.3s;
+}
+#templates-list a:hover{
     color: var(--green-color);
 }
 #templates-list::-webkit-scrollbar {
