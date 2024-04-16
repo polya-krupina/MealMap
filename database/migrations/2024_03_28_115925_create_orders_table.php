@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kid_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('preset_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('preset_id')->nullable()->constrained()->cascadeOnDelete();
             $table->integer('price')->nullable(false);
             $table->date('day')->nullable(false);
             $table->boolean('completed')->nullable(false);

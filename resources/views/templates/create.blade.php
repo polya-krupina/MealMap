@@ -52,6 +52,7 @@
 
             
             searchList.querySelectorAll('.dish-card').forEach((el) => {
+                console.log('im workin');
                 function add() {
                     chosenList.insertAdjacentHTML('beforeend', el.outerHTML);
                     searchList.removeChild(el);
@@ -125,35 +126,10 @@
             return confirmationMessage;              // Gecko, WebKit, Chrome <34
         });
 
-        document.querySelectorAll('.open-info').forEach(function(a){
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.open(a.href);
-            })
-        })
-
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchLines = document.querySelectorAll('.search-line');
-
-            searchLines.forEach(function(searchLine) {
-                searchLine.addEventListener('input', function() {
-                    const searchText = this.value.toLowerCase().trim();
-                    const dishCards = this.closest('.add-dish').querySelectorAll('.dish-card');
-
-                    dishCards.forEach(function(dishCard) {
-                        const composition = dishCard.querySelector('.main-dish-info h2').textContent.toLowerCase();
-                        if (composition.includes(searchText)) {
-                            dishCard.style.display = 'block';
-                        } else {
-                            dishCard.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/dish-card-link.js') }}"></script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
+    <script src="{{ asset('js/dishes-search-display.js') }}"></script>
+    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
 @endpush
 </x-layout>

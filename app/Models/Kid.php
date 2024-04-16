@@ -23,4 +23,8 @@ class Kid extends Model
     public function allergies(){
         return $this->belongsToMany(Product::class, "allergies");
     }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
