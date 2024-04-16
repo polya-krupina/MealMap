@@ -242,7 +242,7 @@ input[type="search"]::-ms-clear {
     border-radius: var(--border-radius);
     transition: 0.3s;
 }
-h2{
+h3{
     color: var(---_, #000301);
     font-size: 16px;
     font-style: normal;
@@ -281,7 +281,7 @@ h2{
     background-color: transparent;
     border: none;
 }
-.open-info:hover h2{
+.open-info:hover h3{
     color: var(--green-color);
 }
 .composition{
