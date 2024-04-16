@@ -1,4 +1,8 @@
 /*day menu*/
+a{
+    text-decoration: none;
+    color: var(--black-text);
+}
 #buttons-container{
     display: flex;
     gap: 30px;
