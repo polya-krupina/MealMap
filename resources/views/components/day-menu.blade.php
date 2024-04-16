@@ -5,22 +5,22 @@
     @if ($order)
         <td class="dishes-list"><div>
             @foreach ($order->preset->meals[0]->dishes as $dish)
-                {{ $dish->name }} <br>
+                {{ ucwords($dish->name) }} <br>
             @endforeach    
         </div></td>
         <td class="dishes-list"><div>
             @foreach ($order->preset->meals[1]->dishes as $dish)
-                {{ $dish->name }} <br>
+                {{ ucwords($dish->name) }} <br>
             @endforeach    
         </div></td>
         <td class="dishes-list"><div>
             @foreach ($order->preset->meals[2]->dishes as $dish)
-                {{ $dish->name }} <br>
+                {{ ucwords($dish->name) }} <br>
             @endforeach    
         </div></td>
         <td class="dishes-list"><div>
             @foreach ($order->preset->meals[3]->dishes as $dish)
-                {{ $dish->name }} <br>
+                {{ ucwords($dish->name) }} <br>
             @endforeach    
         </div></td>
     @else

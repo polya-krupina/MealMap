@@ -2,6 +2,6 @@
 
 <p {{ $attributes(['class' => '']) }}>
     @foreach ($dish->products as $product)
-        {{ $product->name . ', ' }}
+        {{ ucwords($product->name) . ', ' }}
     @endforeach
 </p>

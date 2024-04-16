@@ -126,10 +126,16 @@
             return confirmationMessage;              // Gecko, WebKit, Chrome <34
         });
 
+        document.querySelectorAll('.open-info').forEach(function(a){
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(a.href);
+            })
+        })
+
     </script>
     <script src="{{ asset('js/dish-card-link.js') }}"></script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
-    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
 @endpush
 </x-layout>

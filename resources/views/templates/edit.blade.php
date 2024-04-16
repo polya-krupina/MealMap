@@ -125,6 +125,5 @@ document.addEventListener('DOMNodeInserted', checkState);
     </script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
-    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
 @endpush
 </x-layout>

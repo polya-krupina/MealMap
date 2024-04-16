@@ -20,7 +20,7 @@
                 <hr></hr>
                 <ul class="template-meal-menu">
                     @foreach ($meal->dishes as $dish)
-                      <li class="template-meal-dish">{{ $dish->name }}</li>
+                      <li class="template-meal-dish">{{ ucwords($dish->name) }}</li>
                     @endforeach
                 </ul>
             </div>
