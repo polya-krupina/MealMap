@@ -37,60 +37,12 @@
 @push('scripts')
     <script>
         let saved = false;
-        checkState();
         let meals  = [
             [],
             [],
             [],
             []
         ];
-        let counter = 0;
-        document.querySelectorAll('.meal-info').forEach((e) => {
-            let searchList = e.querySelector('.dishes-choice');
-            let chosenList = e.querySelector('.chosen-dishes');
-            let meal_id = mealDetector(e);
-            searchList.querySelectorAll('.dish-card').forEach((e) => {
-                e.addEventListener('click', () => {
-                    chosenList.insertAdjacentHTML('beforeend', e.outerHTML);
-                    searchList.removeChild(e);
-                    meals[meal_id].push(e.dataset.id);
-                })
-            });
-
-            chosenList.querySelectorAll('.dish-card').forEach((el) => {
-                meals[meal_id].push(el.dataset.id);
-            })
-        })
-
-
-        function mealDetector(meal){
-            let value = meal.querySelector('h1').innerHTML;
-            if (value == 'Завтрак')
-                return 0;
-            else if (value == 'Второй завтрак')
-                return 1;
-            else if (value == 'Обед')
-                return 2;
-            else 
-                return 3;
-        }
-
-function checkState(){
-    let dishes = document.querySelectorAll('.dish-card');
-
-    dishes.forEach((e) => {
-        let parent = e.closest('.chosen-dishes');
-        let button = e.querySelector('.remove-dish');
-        if (parent){
-            button.style.display = 'block';
-        } else {
-            button.style.display = 'none';
-        }
-    })
-}
-
-document.addEventListener('DOMNodeInserted', checkState);
-
     </script>
     <script>
         function save(){
@@ -126,5 +78,6 @@ document.addEventListener('DOMNodeInserted', checkState);
     </script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
+    <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>    
 @endpush
 </x-layout>
