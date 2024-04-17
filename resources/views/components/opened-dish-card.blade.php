@@ -4,7 +4,7 @@
 <div id="dish-info-card">
     <button id="close-card"></button>
     <div class="main-dish-info">            
-        <h4>{{ $dish->name }}</h4>
+        <h4>{{ ucwords($dish->name) }}</h4>
         <p class="price">{{ $dish->price }} ₽</p>
     </div>
     <div class="dish-img-big"><img src="{{ asset('img/fried-eggs.png') }}"></div>

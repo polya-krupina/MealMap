@@ -4,6 +4,7 @@ use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TemplatesController;
@@ -31,7 +32,10 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 
 
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('parent')->name('kid');
+Route::get('kids/{kid:id}/order', [OrderController::class,'show'])->middleware('parent');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('parent');
+
+Route::post('orders', [OrderController::class, 'store']);
 
 Route::get('/templates', [TemplatesController::class, 'show'])->middleware('parent');
 Route::get('/templates/create', [TemplatesController::class, 'create'])->middleware('parent');
