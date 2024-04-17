@@ -10,9 +10,9 @@
         <a href="#" class="change-week"><img src="{{ asset('img/right.svg') }}" onmouseover="this.src={{ asset('img/rightHover.svg') }};" onmouseout="this.src={{ asset('img/right.svg') }};" width="26px"></a>
     </div>
     <div id="day-choice">
-        <a href="#" class="day menu-selected">ПН</a>
+        <a href="#" class="day">ПН</a>
         <a href="#" class="day">ВТ</a>
-        <a href="#" class="day menu-selected">СР</a>
+        <a href="#" class="day">СР</a>
         <a href="#" class="day menu-selected">ЧТ</a>
         <a href="#" class="day">ПТ</a>
         <a href="#" class="day">СБ</a>

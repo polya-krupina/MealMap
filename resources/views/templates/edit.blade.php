@@ -36,6 +36,7 @@
 
 @push('scripts')
     <script>
+        let saved = false;
         checkState();
         let meals  = [
             [],

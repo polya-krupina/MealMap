@@ -21,7 +21,7 @@
         @if($meal)
             @foreach ($meal->dishes as $dish)
                 <x-dish-card :dish="$dish" onclick="reload_by_adding = true;">
-                    <x-slot name="url">templates/create</x-slot>
+                    <x-slot name="url">dishes</x-slot>
                     <button class="remove-dish"></button>
                 </x-dish-card>
             @endforeach
