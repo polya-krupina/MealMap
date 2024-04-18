@@ -16,13 +16,17 @@ a{
     position: fixed;
     z-index: 1;
 }
-.kindergarten-name{
+.kindergarten-name,
+.user-name{
     font-size: 16px;
     font-weight: 300;
     margin: 0;
     padding: 0;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+.user-name{
+    margin-top: 5px
 }
 .logo{
     margin: 30px 0 0 30px;
@@ -32,7 +36,7 @@ a{
     font-size: 32px;
     font-weight: 600;
     color: var(--white-text);
-    margin: 150px 0 0 30px;
+    margin: 119px 0 0 30px;
 }
 .children{    
     display: inline-flex;
