@@ -112,6 +112,9 @@ td{
     line-height: normal;
     width: 25%;
 }
+.day-menu{
+    height: 17%;
+}
 
 /*parent-default*/
 .logo-big-container{    
