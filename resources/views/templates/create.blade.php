@@ -43,64 +43,6 @@
             []
         ];
         let counter = 0;
-        document.querySelectorAll('.meal-info').forEach((e) => {
-            let searchList = e.querySelector('.dishes-choice');
-            let chosenList = e.querySelector('.chosen-dishes');
-            let meal_id = mealDetector(e);
-
-            
-
-            
-            searchList.querySelectorAll('.dish-card').forEach((el) => {
-                console.log('im workin');
-                function add() {
-                    chosenList.insertAdjacentHTML('beforeend', el.outerHTML);
-                    searchList.removeChild(el);
-                    console.log(el);
-                    meals[meal_id].push(el.dataset.id);
-                    checkState();
-                    el.querySelector('.remove-dish').addEventListener('click', remove);
-                }
-
-                function remove(){
-                    let newEl = searchList.insertAdjacentHTML('beforeend', el.outerHTML);
-                    chosenList.removeChild(el);
-                    meals[meal_id].splice(meals.indexOf(el.dataset.id), 1);
-                    newEl.addEventListener('click' ,add);
-                    console.log(meals);
-                }
-
-                el.addEventListener('click', add);
-            });
-        });
-
-        function checkState(){
-            let dishes = document.querySelectorAll('.dish-card');
-
-            dishes.forEach((e) => {
-                let parent = e.closest('.chosen-dishes');
-                let button = e.querySelector('.remove-dish');
-                if (parent){
-                    button.style.display = 'block';
-                } else {
-                    button.style.display = 'none';
-                }
-            })
-        }
-
-        document.addEventListener('DOMNodeInserted', checkState);
-
-        function mealDetector(meal){
-            let value = meal.querySelector('h1').innerHTML;
-            if (value == 'Завтрак')
-                return 0;
-            else if (value == 'Второй завтрак')
-                return 1;
-            else if (value == 'Обед')
-                return 2;
-            else 
-                return 3;
-        }
     </script>
     <script>
         function save(){
@@ -137,5 +79,6 @@
     <script src="{{ asset('js/dish-card-link.js') }}"></script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
+    <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>
 @endpush
 </x-layout>

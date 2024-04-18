@@ -242,6 +242,7 @@ input[type="search"]::-ms-clear {
     transform: translate(-50%, 0);
 }
 .dish-card{
+    position: relative;
     margin: 0 auto;
     width: 298px;
     height: 227px;
