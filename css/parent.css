@@ -265,10 +265,14 @@ a{
     box-shadow: none;   
 }
 .day-price{    
-    color: var(--black-text);
-    font-size: 18px;
+    min-width: 113px;
+    color: var(--grey-text);
+    font-size: 24px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     line-height: normal;
-    vertical-align: middle;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    padding-top: 10px;
+    border-top: 1px solid #D9D9D9;
 }
