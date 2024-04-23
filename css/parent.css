@@ -264,3 +264,11 @@ a{
     background: var(--grey-text);
     box-shadow: none;   
 }
+.day-price{    
+    color: var(--black-text);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    vertical-align: middle;
+}
