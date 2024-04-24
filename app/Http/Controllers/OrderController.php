@@ -73,14 +73,6 @@ class OrderController extends Controller
                 ->withErrors(['time' => 'Нельзя сделать заказ, когда до дня его исполнения осталось меньше дня']);
         }
 
-        function count_price(Meal $meal){
-            $price = 0;
-            foreach($meal->dishes as $dish)
-                $price += $dish->price;
-
-            return $price;
-        }
-
 
         foreach($template->meals as $meal){
             foreach($meal->dishes as $dish){
@@ -98,18 +90,19 @@ class OrderController extends Controller
             $order->preset_id = $template->id;
             $order->day = $day;
             $order->completed = 0;
-            $order->price = 0;
-            foreach ($template->meals as $meal)
-                $order->price += count_price($meal);
+            $order->price = $order->get_price();
             $order->save();
         } else {
             $order->preset_id = $template->id;
-            $order->price = 0;
-            foreach ($template->meals as $meal)
-                $order->price += count_price($meal);
+            $order->price = $order->get_price();
             $order->save();
         }
 
         return back()->with('success', 'Все получилось');
     }
+
+    public function destroy(Order $order){
+        $order->delete();
+        return back()->with('success','Успешно');
+    }   
 }

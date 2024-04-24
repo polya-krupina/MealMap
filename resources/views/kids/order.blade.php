@@ -28,17 +28,35 @@
             </div>
         </div>
         @if ($diff > 1)
+            @if($order)
+            <form action="/order/{{ $order->id }}/delete" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="deselect">
+                    Отменить заказ
+                </button>
+            </form>
+            @endif
             <form action="/orders" method="post">
                 @csrf
                 <input type="hidden" name="template_id" value="{{ request('template') ?? -1 }}">
                 <input type="hidden" name="order_id" value={{ $order->id ?? -1 }}>
-                <input type="hidden" name="kid_id" value={{ $kid->id }}>
+                <input type="hidden" name="kid_id"  value={{ $kid->id }}>
                 <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
                 <button type="submit" class="save-menu">
                     Сохранить
                 </button>
             </form>
         @else
+            @if($order && $diff > 0)
+            <form action="/order/{{ $order->id }}/delete" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" id="deselect">
+                    Отменить заказ
+                </button>
+            </form>
+            @endif
             <button type="submit" class="save-menu inactive-button" disabled>
                 Сохранить
             </button>
@@ -56,12 +74,7 @@
         <x-meal-info :dishes="$dishes[3]"> Обед </x-meal-info>
         <x-meal-info :dishes="$dishes[4]"> Полдник </x-meal-info>
         @endif
-    </div> 
-    {{-- @error()
-        <div class="error-notificationЗ">
-            {{ $message }}
-        </div>
-    @enderror --}}
+    </div>  
     @if($errors->any())
         {!! implode('', $errors->all('<div class="error-notification">:message</div>')) !!}
     @endif

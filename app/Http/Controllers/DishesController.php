@@ -15,4 +15,9 @@ class DishesController extends Controller
             'found' => Dish::find(request('id'))
         ]);
     }
+
+    public function send(Dish $dish){
+        $id = $dish->id;
+        return response()->json(Dish::with('products')->where('id', $id)->first());
+    }
 }

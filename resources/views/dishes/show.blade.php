@@ -1,6 +1,7 @@
 <x-layout class="content" :kids="$kids" active="dishes">
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/parent-month-menu.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @endpush
 
     <div class="header">
@@ -29,9 +30,7 @@
 </section>
 
 <div id="dark-overlay"></div>
-@if(request('id'))
-    <x-opened-dish-card :dish="$found"/>
-@endif
+<x-dish-info-card/>
 
 @push('scripts')
     <script>
@@ -68,5 +67,7 @@
             });
         });
     </script>
+    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
+    <script src="{{ asset('js/dish-card-link.js') }}"></script>
 @endpush
 </x-layout>

@@ -244,13 +244,13 @@ input[type="search"]::-ms-clear {
     transform: translate(-50%, 0);
 }
 .dish-card{
-    position: relative;
     margin: 0 auto;
     width: 298px;
     height: 227px;
     border: 1.16px solid var(--grey-border);
     border-radius: var(--border-radius);
     transition: 0.3s;
+    position: relative;
 }
 h3{
     color: var(---_, #000301);

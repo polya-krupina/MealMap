@@ -46,9 +46,12 @@ Route::post('/templates/{preset:id}/update', [TemplatesController::class, 'updat
 
 Route::post('meals/add', [MealController::class, 'add']);
 
+Route::delete('/order/{order:id}/delete', [OrderController::class,'destroy'])->middleware('parent');
+
 Route::post('allergy', [AllergyController::class,'create'])->middleware('parent');
 Route::delete('allergy', [AllergyController::class,'delete'])->middleware('parent');
 
 Route::get('/dishes',[DishesController::class, 'show'])->middleware('parent');
+Route::get('/dish/{dish:id}',[DishesController::class, 'send'])->middleware('parent');
 
 Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');

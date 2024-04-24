@@ -20,4 +20,12 @@ class Meal extends Model
     public function meal_type(){
         return $this->belongsTo(MealType::class);
     }
+
+    public function price(){
+        $price = 0;
+        foreach($this->dishes as $dish)
+            $price += $dish->price;
+
+        return $price;
+    }
 }

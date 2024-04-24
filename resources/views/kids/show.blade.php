@@ -22,12 +22,12 @@
                     <td class="meal">Обед</td>
                     <td class="meal">Полдник</td>
                 </tr>
-                <x-day-menu :order="$weekOrders[0]">ПН</x-day-menu>
-                <x-day-menu :order="$weekOrders[1]">ВТ</x-day-menu>
-                <x-day-menu :order="$weekOrders[2]">СР</x-day-menu>
-                <x-day-menu :order="$weekOrders[3]">ЧТ</x-day-menu>
-                <x-day-menu :order="$weekOrders[4]">ПТ</x-day-menu>
-                <x-day-menu :order="$weekOrders[5]">СБ</x-day-menu>
+                <x-day-menu :order="$weekOrders[0]" :day="$week[0]" :kid="$kid">ПН</x-day-menu>
+                <x-day-menu :order="$weekOrders[1]" :day="$week[1]" :kid="$kid">ВТ</x-day-menu>
+                <x-day-menu :order="$weekOrders[2]" :day="$week[2]" :kid="$kid">СР</x-day-menu>
+                <x-day-menu :order="$weekOrders[3]" :day="$week[3]" :kid="$kid">ЧТ</x-day-menu>
+                <x-day-menu :order="$weekOrders[4]" :day="$week[4]" :kid="$kid">ПТ</x-day-menu>
+                <x-day-menu :order="$weekOrders[5]" :day="$week[5]" :kid="$kid">СБ</x-day-menu>
             </table>
         </div>
     </div>

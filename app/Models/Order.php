@@ -16,4 +16,13 @@ class Order extends Model
     public function preset(){
         return $this->belongsTo(Preset::class);
     }
+
+    public function get_price(){
+        $price = 0;
+        foreach ($this->preset->meals as $meal){
+            $price += $meal->price();
+        }
+
+        return $price;
+    }
 }
