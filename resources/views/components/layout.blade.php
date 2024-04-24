@@ -19,6 +19,7 @@
     <nav id="menu">
         <a href="/" class="logo"><img src="{{ asset('img/whiteLogo.svg') }}" width="148px" height="25px"></a>
         <p class="kindergarten-name">Маленький Гений</p>
+        <p class="user-name">Здравствуйте, {{ auth()->user()->name }}</p>
         <span id="my-children">Мои дети</span>
         <ul class="children">
             <hr></hr>

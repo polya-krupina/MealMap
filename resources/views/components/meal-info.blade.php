@@ -1,5 +1,5 @@
 @props(['dishes', 'meal' => null])
-<div class="meal-info">
+<div class="meal-info" data-id="{{ $meal->id ?? '' }}">
     <h1>{{ $slot }}</h1>
     <div class="add-dish">
         <div class="search-container">

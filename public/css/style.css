@@ -35,3 +35,21 @@ body, html {
     background: var(--green-color);
     border-radius: var(--border-radius);
 }
+
+.error-notification{
+    z-index: 10;
+    max-width: 400px;
+    position: absolute;
+    right:20px;
+    bottom: 20px;
+    color: var(--black-text);
+    background-color: var(--white-background);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    padding: 18px 21px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--red-color);
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);
+}

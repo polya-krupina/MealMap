@@ -1,17 +1,11 @@
-<x-layout :kids="$kids" class="page-content">
+<x-layout :kids="$kids" class="page-content" :active="$kid->id">
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
-        <script src="{{ asset('js/dishes-search.js') }}"></script>
-        @if (!request('template'))
-            <script src="{{ asset('js/dishes-search-display.js') }}"></script>
-        @endif
-        <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     @endpush
-
     <div id="week-choice">
         <a href="/kids/{{ $kid->id }}?date={{ $date->format('Y-m-d') }}" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src={{ asset('img/leftHover.svg') }};" onmouseout="this.src={{ asset('img/left.svg') }};" width="26px"></a>
         <span class="week-info">К полной неделе</span>
@@ -28,21 +22,27 @@
             <div id="list-container">
                 <ul id="templates-list">
                     @foreach (auth()->user()->presets as $template)
-                        <li><a href="{{ $_SERVER['REQUEST_URI'] . '&template=' . $template->id}}">{{ $template->name }}</a></li>
+                        <li><a href="/kids/{{ $kid->id }}   /order?date={{ $date->format('Y-m-d') }}&template={{ $template->id }}">{{ $template->name }}</a></li>
                     @endforeach
                 </ul>
             </div>
         </div>
-        <form action="/orders" method="post">
-            @csrf
-            <input type="hidden" name="template_id" value="{{ request('template') ?? -1 }}">
-            <input type="hidden" name="order_id" value={{ $order->id ?? -1 }}>
-            <input type="hidden" name="kid_id" value={{ $kid->id }}>
-            <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
-            <button type="submit" id="save-menu">
+        @if ($diff > 1)
+            <form action="/orders" method="post">
+                @csrf
+                <input type="hidden" name="template_id" value="{{ request('template') ?? -1 }}">
+                <input type="hidden" name="order_id" value={{ $order->id ?? -1 }}>
+                <input type="hidden" name="kid_id" value={{ $kid->id }}>
+                <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
+                <button type="submit" class="save-menu">
+                    Сохранить
+                </button>
+            </form>
+        @else
+            <button type="submit" class="save-menu inactive-button" disabled>
                 Сохранить
             </button>
-        </form>
+        @endif
     </div>
     <div id="day-menu-container">
         @if (request('template') || $order)    
@@ -57,15 +57,35 @@
         <x-meal-info :dishes="$dishes[4]"> Полдник </x-meal-info>
         @endif
     </div> 
-<script>
-    document.getElementById('list-container').addEventListener('mouseover', function() {
-    document.getElementById('choose-template').classList.add('hovered');
-    });
+    {{-- @error()
+        <div class="error-notificationЗ">
+            {{ $message }}
+        </div>
+    @enderror --}}
+    @if($errors->any())
+        {!! implode('', $errors->all('<div class="error-notification">:message</div>')) !!}
+    @endif
 
-    document.getElementById('list-container').addEventListener('mouseout', function() {
-    document.getElementById('choose-template').classList.remove('hovered');
-    });
+    <div id="dark-overlay"></div>
 
-</script>
-<script src="{{ asset('js/dish-card-link.js') }}"></script>
+    @push('scripts')
+        
+        <script src="{{ asset('js/dishes-search.js') }}"></script>
+        @if (!request('template'))
+            <script src="{{ asset('js/dishes-search-display.js') }}"></script>
+        @endif
+        <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>
+        <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
+        <script>
+            document.getElementById('list-container').addEventListener('mouseover', function() {
+            document.getElementById('choose-template').classList.add('hovered');
+            });
+        
+            document.getElementById('list-container').addEventListener('mouseout', function() {
+            document.getElementById('choose-template').classList.remove('hovered');
+            });
+        
+        </script>
+        <script src="{{ asset('js/dish-card-link.js') }}"></script>
+    @endpush
 </x-layout>

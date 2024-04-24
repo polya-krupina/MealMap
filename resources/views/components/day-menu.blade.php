@@ -1,7 +1,7 @@
 @props(['order'])
 
 <tr class="day-menu">
-    <td class="day-name">{{ $slot }}</td>
+    <td class="day-name"> <a href="" style="text-decoration: 'none';">{{ $slot }}</a></td>
     @if ($order)
         <td class="dishes-list"><div>
             @foreach ($order->preset->meals[0]->dishes as $dish)
@@ -25,23 +25,15 @@
         </div></td>
     @else
         <td class="dishes-list"><div>
-            Заказ еще не сделан <br>
-            Заказ еще не сделан <br>
             Заказ еще не сделан
         </div></td>
         <td class="dishes-list"><div>
-            Заказ еще не сделан <br>
-            Заказ еще не сделан <br>
             Заказ еще не сделан
         </div></td>
         <td class="dishes-list"><div>
-            Заказ еще не сделан <br>
-            Заказ еще не сделан <br>
             Заказ еще не сделан
         </div></td>
         <td class="dishes-list"><div>
-            Заказ еще не сделан <br>
-            Заказ еще не сделан <br>
             Заказ еще не сделан
         </div></td>
     @endif

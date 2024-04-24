@@ -36,15 +36,7 @@
 @push('scripts')
     <script>
         let saved = false;
-        let meals  = [
-            [],
-            [],
-            [],
-            []
-        ];
         let counter = 0;
-    </script>
-    <script>
         function save(){
             saved = true;
             let breakfast = document.getElementsByName('breakfast')[0];

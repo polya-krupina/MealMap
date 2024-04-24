@@ -1,36 +1,23 @@
-document.querySelectorAll('.meal-info').forEach((e) => {
-    let searchList = e.querySelector('.dishes-choice');
-    let chosenList = e.querySelector('.chosen-dishes');
-    let meal_id = mealDetector(e);
-    
-    searchList.querySelectorAll('.dish-card').forEach((el) => {
-        function add(event) {
-            chosenList.appendChild(el);
-            meals[meal_id].push(el.dataset.id);
-            checkState(el);
-        }
+let meals = [
+    [],
+    [],
+    [],
+    []
+];
 
-        function remove(event){
-            event.stopPropagation();
-            searchList.appendChild(el);
-            meals[meal_id].splice(meals.indexOf(el.dataset.id), 1);
-            checkState(el);
-        }
-
-        el.addEventListener('click', add);
-        el.querySelector('.remove-dish').addEventListener('click', remove);
-    });
-});
-
-function checkState(e){
-    let parent = e.closest('.chosen-dishes');
-    let button = e.querySelector('.remove-dish');
+function checkState(meal){
+    let parent = meal.closest('.chosen-dishes');
+    let button = meal.querySelector('.remove-dish');
     if (parent){
         button.style.display = 'inline-block';
     } else {
         button.style.display = 'none';
     }
 
+}
+
+function addToMeals(meal, dish){
+    meals[meal].push(dish.dataset.id);
 }
 
 function mealDetector(meal){
@@ -44,3 +31,38 @@ function mealDetector(meal){
     else 
         return 3;
 }
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    document.querySelectorAll('.meal-info').forEach((meal) => {
+        let searchList = meal.querySelector('.dishes-choice');
+        let chosenList = meal.querySelector('.chosen-dishes');
+        let meal_id = mealDetector(meal);
+
+        function add(event, el) {
+            if (el.closest('.chosen-dishes'))
+                return;
+            chosenList.appendChild(el);
+            meals[meal_id].push(el.dataset.id);
+            checkState(el);
+        }
+
+        function remove(event, el){
+            event.stopPropagation();
+            searchList.appendChild(el);
+            meals[meal_id].splice(meals.indexOf(el.dataset.id), 1);
+            checkState(el);
+        }
+
+        searchList.querySelectorAll('.dish-card').forEach((el) => {
+            el.addEventListener('click', (evenet) => add(event, el));
+            el.querySelector('.remove-dish').addEventListener('click', (event) => remove(event, el));
+        });
+
+        chosenList.querySelectorAll('.dish-card').forEach((el) => {
+            el.addEventListener('click', (evenet) => add(event, el));
+            el.querySelector('.remove-dish').addEventListener('click', (event) => remove(event, el));
+            checkState(el);
+            addToMeals(meal_id, el);
+        })
+    });
+});

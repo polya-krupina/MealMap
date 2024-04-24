@@ -37,14 +37,6 @@
 @push('scripts')
     <script>
         let saved = false;
-        let meals  = [
-            [],
-            [],
-            [],
-            []
-        ];
-    </script>
-    <script>
         function save(){
             saved = true;
             let breakfast = document.getElementsByName('breakfast')[0];
@@ -75,9 +67,10 @@
             })
         })
 
+        
     </script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
-    <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>    
+    <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>  
 @endpush
 </x-layout>

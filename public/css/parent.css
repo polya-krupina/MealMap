@@ -1,4 +1,7 @@
 /*parent-child month menu*/
+.day-menu{
+    height: 17%;
+}
 .page-content{
     position:absolute;
     padding-top: 50px;

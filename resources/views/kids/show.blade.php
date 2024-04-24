@@ -15,6 +15,13 @@
     <div id="calendar-container">
         <div id="calendar">
             <table class="month-menu">
+                <tr class="meals">
+                    <td class="day-name"></td>
+                    <td class="meal">Завтрак</td>
+                    <td class="meal">Второй завтрак</td>
+                    <td class="meal">Обед</td>
+                    <td class="meal">Полдник</td>
+                </tr>
                 <x-day-menu :order="$weekOrders[0]">ПН</x-day-menu>
                 <x-day-menu :order="$weekOrders[1]">ВТ</x-day-menu>
                 <x-day-menu :order="$weekOrders[2]">СР</x-day-menu>
