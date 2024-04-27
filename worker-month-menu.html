@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <link rel="stylesheet" href="css/parent-month-menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="worker-default.html" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <ul class="worker-options">
+            <hr></hr>
+            <li class="worker-option">
+                <a href="#" class="option-text"><span>Посмотреть расписание</span></a>
+            </li>
+            <hr></hr>
+            <li class="worker-option">
+                <a href="#" class="option-text active"><span>Загрузить меню на месяц</span></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="header worker-header">
+            <button class="menu-button">Загрузить меню на месяц</button>
+            <div class="month-menu-container">
+                <div class="month-name"><p>Меню на март</p><img src="img/clip.svg"></div>                
+                <button class="remove-month-menu"></button>
+            </div>
+            <div class="meals-list">
+                <a href="#breakfast" class="meal-link">Завтрак</a>
+                <a href="#second-breakfast" class="meal-link">Второй завтрак</a>
+                <a href="#lunch" class="meal-link">Обед</a>
+                <a href="#afternoon-snack" class="meal-link">Полдник</a>
+            </div>
+        </div>
+        <section class="menu worker-menu">
+            <div class="meal-section" id="breakfast">
+                <h2>Завтрак</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <a class="open-info"><h3>Яичница</h3></a>
+                                <input type="number" class="price-input" placeholder="200 ₽">
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="second-breakfast">
+                <h2>Второй завтрак</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <input type="number" class="price-input" placeholder="200 ₽">
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="lunch">
+                <h2>Обед</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <input type="number" class="price-input" placeholder="200 ₽">
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="meal-section" id="afternoon-snack">
+                <h2>Полдник</h2>
+                <hr></hr>
+                <div class="dishes-list">
+                    <div class="dish-card">
+                        <div class="dish-img"><img src="img/fried-eggs.png"></div>
+                        <div class="dish-info">
+                            <div class="main-dish-info">
+                                <button class="open-info"><h3>Яичница</h3></button>
+                                <input type="number" class="price-input" placeholder="200 ₽">
+                            </div>
+                            <p class="composition">Яйцо куриное, огурец, хлеб белый, масло, соль,  перец </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <div id="dark-overlay"></div>
+    <div id="dish-info-card">
+        <button id="close-card"></button>
+        <div class="main-dish-info">            
+            <h4>Яичница</h4>
+            <p class="price">200 ₽</p>
+        </div>
+        <div class="dish-img-big"><img src="img/fried-eggs.png"></div>
+        <div class="composition-big">
+            <h5>Состав:</h5>
+            <hr></hr>
+            <p class="composition-text">
+                Яйцо куриное, огурец, хлеб белый, масло, соль,  перец 
+            </p>
+        </div>
+        <div class="nutritional-value">
+            <h5>Пищевая ценность (на 100 граммов яичницы):</h5>
+            <hr></hr>
+            <div class="values-list">
+                <p>Калории: 150-200 ккал</p>
+                <p>Белки: 10-15 г</p>
+                <p>Жиры: 10-15 г</p>
+                <p>Углеводы: 1-3 г</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/open-dish-info-card.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
