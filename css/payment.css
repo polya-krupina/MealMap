@@ -106,6 +106,19 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+.dish-month > p{
+    display: block;
+    width: 150px;
+}
+.dish-month p:nth-child(1) {
+    text-align: left;
+}
+.dish-month p:nth-child(2) {
+    text-align: center;
+}
+.dish-month p:nth-child(3) {
+    text-align: right;
+}
 .month-total{
     margin-top: 60px;
     display: flex;
