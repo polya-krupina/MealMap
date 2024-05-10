@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->integer('price')->nullable(false);
             $table->date('day')->nullable(false);
             $table->boolean('completed')->nullable(false);
+            $table->boolean('paid')->nullable(false)->default(false);
         });
     }
 

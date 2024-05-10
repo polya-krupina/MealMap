@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     @endpush
     <div id="week-choice">
@@ -27,36 +28,20 @@
                 </ul>
             </div>
         </div>
+        @if($order && $diff > 0)
+        <form action="/order/{{ $order->id }}/delete" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" id="deselect">
+                Отменить заказ
+            </button>
+        </form>
+        @endif
         @if ($diff > 1)
-            @if($order)
-            <form action="/order/{{ $order->id }}/delete" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" id="deselect">
-                    Отменить заказ
-                </button>
-            </form>
-            @endif
-            <form action="/orders" method="post">
-                @csrf
-                <input type="hidden" name="template_id" value="{{ request('template') ?? -1 }}">
-                <input type="hidden" name="order_id" value={{ $order->id ?? -1 }}>
-                <input type="hidden" name="kid_id"  value={{ $kid->id }}>
-                <input type="hidden" name="date" value="{{ $date->format('Y-m-d') }}">
-                <button type="submit" class="save-menu">
-                    Сохранить
-                </button>
-            </form>
+        <button type="submit" class="save-menu" onclick="send()">
+            Сохранить
+        </button>
         @else
-            @if($order && $diff > 0)
-            <form action="/order/{{ $order->id }}/delete" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" id="deselect">
-                    Отменить заказ
-                </button>
-            </form>
-            @endif
             <button type="submit" class="save-menu inactive-button" disabled>
                 Сохранить
             </button>
@@ -75,18 +60,17 @@
         <x-meal-info :dishes="$dishes[4]"> Полдник </x-meal-info>
         @endif
     </div>  
-    @if($errors->any())
-        {!! implode('', $errors->all('<div class="error-notification">:message</div>')) !!}
-    @endif
-
+    <div class="error-notification" style="display: none;">:message</div>
+    {{-- @if($errors->any())
+        {!! implode('', $errors->all('')) !!}
+    @endif --}}
+    <x-dish-info-card/>
     <div id="dark-overlay"></div>
 
     @push('scripts')
-        
+    <script src="{{ asset('js/show-error.js') }}"/>
         <script src="{{ asset('js/dishes-search.js') }}"></script>
-        @if (!request('template'))
-            <script src="{{ asset('js/dishes-search-display.js') }}"></script>
-        @endif
+        <script src="{{ asset('js/dishes-search-display.js') }}"></script>
         <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>
         <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
         <script>
@@ -99,6 +83,28 @@
             });
         
         </script>
-        <script src="{{ asset('js/dish-card-link.js') }}"></script>
+        <script>
+            function send(){
+                let data = {
+                    'meals' : meals,
+                    'kid_id' : {!! $kid->id !!},
+                    'day': '{!! $date->format('Y-m-d')!!}'
+                };
+
+                @if ($order)
+                    data['order_id'] = {!! $order->id !!}; // Если заказ уже есть
+                @endif
+
+                axios.post('/save', data)
+                .then( (response) => {
+                    if (response.data.error == null){
+                        alert(response.data.success);
+                        hideError();
+                    } else {
+                        showError(response.data.error);
+                    }
+                })
+            }
+        </script>
     @endpush
 </x-layout>

@@ -90,15 +90,70 @@ class OrderController extends Controller
             $order->preset_id = $template->id;
             $order->day = $day;
             $order->completed = 0;
-            $order->price = $order->get_price();
-            $order->save();
         } else {
             $order->preset_id = $template->id;
-            $order->price = $order->get_price();
-            $order->save();
         }
+        $order->price = $order->get_price();
+        $order->save();
 
         return back()->with('success', 'Все получилось');
+    }
+
+    public function save( Request $request){
+        function make_meal($dishes, $meal){
+            $meal->dishes()->attach($dishes);
+        }
+
+        $template = new Preset;
+        $template->user_id = auth()->user()->id;
+        $order = Order::find($request['order_id']);
+        $kid = Kid::find($request['kid_id']);
+        $day = $request['day'];
+        $meals_dishes = $request['meals'];
+        
+        $diff = Carbon::createFromFormat('Y-m-d', $day)->diff(Carbon::today())->days;
+
+        if (Carbon::today() > $day){
+            $diff = -$diff;
+        }
+
+        $response = [];
+
+        if ($diff < 1) {
+            $response['error'] = 'Нельзя сделать заказ, когда до дня его исполнения осталось меньше дня';
+            return $response;
+        }
+
+        foreach($meals_dishes as $meal){
+            $dishes = Dish::find($meal);
+            $intersection = $kid->allergies->intersect($dishes);
+
+            if ($intersection->isNotEmpty()){
+                $response['error'] = 'Нельзя создать заказ для ребенка, в котором содержатся продукты, на которые у ребенка аллергия';
+                return $response;
+            }
+        }
+
+        $template->save();
+        for ($i = 0; $i < 4; $i++){
+            make_meal($meals_dishes[$i], $template->meals[$i]);
+        }
+        $template->save();
+        $message = 'Заказ успешно изменен!';
+        if (!$order){
+            $order = new Order;
+            $order->kid_id = $kid->id;
+            $order->preset_id = $template->id;
+            $order->day = $day;
+            $order->completed = 0;
+            $message = 'Заказ успешно сделан!';
+        }
+        $order->preset_id = $template->id;
+
+        $order->price = $order->get_price();
+        $order->save();
+        $response['success'] = $message;
+        return $response;
     }
 
     public function destroy(Order $order){

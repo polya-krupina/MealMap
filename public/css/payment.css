@@ -1,0 +1,210 @@
+#page-content{
+    padding: 0 30px;
+    margin-left: 378px;
+    position: relative;
+    height: 100vh;
+}
+h1{
+    color: var(--black-text);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 50px;
+}
+#payment-month{
+    color: var(--black-text);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: auto;
+    margin-top: 11px;
+    display: block;
+    width: 185px;
+}
+#children-container{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 150px;
+}
+.child-payment{
+    display: flex;
+    align-items: start;
+    gap: 93px;
+}
+.child-payment-info{
+    width: 100%;
+}
+.child-closed-info,
+.child-opened-info{
+    padding: 33px 51px 33px 58px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.10);   
+}
+.child-closed-info{
+    height: 29px;
+    display: flex;
+    align-items: center;
+}
+.child-closed-info > img{
+    height: 9px;   
+}
+.open-info{
+    background-image: url('../img/open.svg');
+    height: 9px;
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin-left: 93px;
+}
+.open-info:hover{
+    background-image: url('../img/openHover.svg');
+}
+.child-closed-info > p,
+.child-opened-info > p{
+    color: var(--black-text);
+}
+.child-name{
+    font-size: 20px;
+}
+.monthly-amount,
+.month-total{
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.monthly-amount{
+    margin-left: auto;
+}
+.child-opened-info{
+    display: flex;
+    flex-direction: column;
+    color: var(--black-text);
+    padding-right: 164px;
+    padding-bottom: 52px;
+    position: relative;
+    display: none;
+}
+.payment-dishes-list{
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16.5px 0;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+}
+.dish-month{
+    display: flex;
+    justify-content: space-between;
+}
+.month-total{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.close-info{
+    position: absolute;
+    right: 51px;
+    bottom: 62px;
+    background-image: url('../img/close.svg');
+    height: 9px;
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.close-info:hover{
+    background-image: url('../img/closeHover.svg');
+}
+
+
+
+
+#payment-button-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0 50px 0;
+    background-color: var(--white-background);
+}
+.pay-for-month{
+    width: 348px;
+    height: 60px;
+    padding: 10px;
+    background: var(--green-color);
+    border-radius: 16px;
+    border: none;
+    color: var(--white-text);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: block;
+    margin-left: auto;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+.pay-for-month:hover{    
+    background: var(--green-light);
+    box-shadow: 2px 2px 10px 0px rgba(0, 255, 56, 0.50);
+}
+.inactive-button,
+.inactive-button:hover,
+.inactive-button:active,
+.pay-for-month:active{    
+    background: var(--grey-text);
+    box-shadow: none;
+}
+.inactive-button{
+    cursor: default;
+}
+
+
+.checkboxContainer {
+    position: relative;
+    display: block;
+    margin-top: 27px;
+    display: inline-block;
+}
+.checkboxInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkboxImage {
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/emptyDefault.svg');
+    background-size: cover;
+    cursor: pointer;
+}
+.dish-month > p{
+    display: block;
+    width: 150px;
+}
+.dish-month p:nth-child(1) {
+    text-align: left;
+}
+.dish-month p:nth-child(2) {
+    text-align: center;
+}
+.dish-month p:nth-child(3) {
+    text-align: right;
+}

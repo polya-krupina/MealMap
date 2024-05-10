@@ -25,7 +25,7 @@
             <hr></hr>
             @foreach($kids as $kid)
             <li class="child-button {{ $active == $kid->id ? 'active' : '' }}">
-                <a href="/kids/{{ $kid->id }}?date={{ Carbon\Carbon::now()->format('Y-m-d') }}" class="child"><img src="{{ asset('img/empty.jpg') }}" width="28px" height="28px">{{ $kid->name }}</a>
+                <a href="/kids/{{ $kid->id }}?date={{ Carbon\Carbon::now()->format('Y-m-d') }}" class="child"><img src="{{ asset('img/empty.jpg') }}" width="28px" height="28px"><span>{{ $kid->name }}</span></a>
                 <a href="/kids/{{ $kid->id }}/allergies" class="edit-child"><img src="{{ asset('img/edit.svg') }}"></a>
             </li>
             <hr></hr>
@@ -34,7 +34,7 @@
         <ul class="buttons">
             <hr></hr><li><a href="/dishes" class="button {{ $active == "dishes" ? 'active' : '' }}" width="22" height="21"><img src="{{ asset('img/monthly menu.svg') }}"><span>Меню на месяц</span></a></li>
             <hr></hr><li><a href="/templates" class="button {{ $active == "templates" ? 'active' : '' }}"><img src="{{ asset('img/my templates.svg') }}"><span>Мои шаблоны</span></a></li>
-            <hr></hr><li><a href="#" class="button"><img src="{{ asset('img/payment.svg') }}"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="/payment" class="button {{ $active == "payment" ? 'active' : '' }}"><img src="{{ asset('img/payment.svg') }}"><span>Оплата</span></a></li>
             <hr></hr><li><a href="/logout" class="button"><img src="{{ asset('img/exit.svg') }}"><span>Выход</span></a></li>
         </ul>
     </nav>

@@ -34,6 +34,8 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('parent')->name('kid');
 Route::get('kids/{kid:id}/order', [OrderController::class,'show'])->middleware('parent');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('parent');
+Route::get('/payment', [ParentController::class, 'payment'])->middleware('parent');
+Route::post('pay', [ParentController::class, 'pay'])->middleware('parent');
 
 Route::post('orders', [OrderController::class, 'store']);
 
@@ -55,3 +57,4 @@ Route::get('/dishes',[DishesController::class, 'show'])->middleware('parent');
 Route::get('/dish/{dish:id}',[DishesController::class, 'send'])->middleware('parent');
 
 Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');
+Route::post('/save', [OrderController::class, 'save']);

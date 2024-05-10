@@ -1,6 +1,7 @@
 <x-layout :kids="$kids" class="page-content" :active="$kid->id">
     
     @push('styles')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
     @endpush
 
@@ -31,4 +32,10 @@
             </table>
         </div>
     </div>
+    <x-dish-info-card/>
+    <div id="dark-overlay"></div>
+    
+    @push('scripts')
+    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
+    @endpush
 </x-layout>

@@ -13,7 +13,6 @@ function checkState(meal){
     } else {
         button.style.display = 'none';
     }
-
 }
 
 function addToMeals(meal, dish){

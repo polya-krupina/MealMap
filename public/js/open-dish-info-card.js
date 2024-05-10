@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var darkOverlay = document.getElementById('dark-overlay');
 
     openDishCards.forEach(function(openDishCard) {
-        let dish_id = openDishCard.closest('.dish-card').dataset.id;
+        let dish_id = openDishCard;
+        if (dish_id.dataset.id != null)
+            dish_id = openDishCard.dataset.id;
+        else 
+            dish_id = openDishCard.closest('.dish-card').dataset.id;
         openDishCard.addEventListener('click', function(e) {
             e.preventDefault();
             axios.get('/dish/' + dish_id).then( (response) => {
@@ -40,11 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 fats.innerHTML = fats.innerHTML.split(' ')[0] + ' ' + response.data.fats;
                 carbohydrates.innerHTML = carbohydrates.innerHTML.split(' ')[0] + ' ' + response.data.carbohydrates;
                 products.innerHTML = validate_products(response.data.products);
+                document.body.style.overflow = 'hidden';
+                changeNumberForm.style.display = 'block';
+                darkOverlay.style.display = 'block';
                 console.log(card);
             });
-            document.body.style.overflow = 'hidden';
-            changeNumberForm.style.display = 'block';
-            darkOverlay.style.display = 'block';
+            
         });
     });
 

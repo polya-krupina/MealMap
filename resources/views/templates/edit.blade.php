@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="{{ asset('css/templates.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @endpush
     <div id="week-choice">
         <a href="/templates" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src={{ asset('img/leftHover.svg') }};" onmouseout="this.src={{ asset('img/left.svg') }};" width="26px"></a>
@@ -32,43 +33,12 @@
         <x-meal-info :meal="$preset->meals[2]" :dishes="$dishes[3]">Обед</x-meal-info>
         <x-meal-info :meal="$preset->meals[3]" :dishes="$dishes[4]">Полдник</x-meal-info>
     </div>
+    <x-dish-info-card/>
     <div id="dark-overlay"></div>
 
 @push('scripts')
-    <script>
-        let saved = false;
-        function save(){
-            saved = true;
-            let breakfast = document.getElementsByName('breakfast')[0];
-            let second_breakfast = document.getElementsByName('second_breakfast')[0];
-            let dinner = document.getElementsByName('dinner')[0];
-            let half_day = document.getElementsByName('half_day')[0];
-
-            breakfast.value = meals[0];
-            second_breakfast.value = meals[1];
-            dinner.value = meals[2];
-            half_day.value = meals[3];
-            
-        }
-       window.addEventListener('beforeunload', function (e) {
-            var confirmationMessage = 'Are you sure you want to leave?';  // Set a custom confirmation message
-            if (saved){
-                return false;
-            }
-
-            e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-            return confirmationMessage;              // Gecko, WebKit, Chrome <34
-        });
-
-        document.querySelectorAll('.open-info').forEach(function(a){
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.open(a.href);
-            })
-        })
-
-        
-    </script>
+    <script src="{{ asset('js/save-before-leave.js') }}"></script>
+    <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
     <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>  
