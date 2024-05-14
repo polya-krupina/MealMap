@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/parent-left-menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <title>MealMap</title>
+</head>
+<body>
+    <nav id="menu">
+        <a href="parent-default.html" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
+        <p class="kindergarten-name">Маленький Гений</p>
+        <span id="my-children">Мои дети</span>
+        <ul class="children">
+            <hr></hr>
+            <li class="child-button">
+                <a href="parent-child-menu.html" class="child"><img src="img/empty.jpg" width="28px" height="28px"><span>Иванов Петр</span></a>
+                <a href="parent-child-info.html" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+            <li class="child-button">
+                <a href="parent-child-menu.html" class="child"><img src="img/empty.jpg" width="28px" height="28px">Иванов Иван</a>
+                <a href="parent-child-info.html" class="edit-child"><img src="img/edit.svg"></a>
+            </li>
+            <hr></hr>
+        </ul>
+        <ul class="buttons">
+            <hr></hr><li><a href="parent-month-menu.html" class="button" width="22" height="21"><img src="img/monthly menu.svg"><span>Меню на месяц</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/my templates.svg"><span>Мои шаблоны</span></a></li>
+            <hr></hr><li><a href="#" class="button active"><img src="img/payment.svg"><span>Оплата</span></a></li>
+            <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+        </ul>
+    </nav>
+
+    <section id="page-content">
+        <div id="back-payment">
+            <a href="parent-payment.html" class="change-week"><img src="img/left.svg" onmouseover="this.src='img/leftHover.svg';" onmouseout="this.src='img/left.svg';" width="26px"></a>
+            <span class="week-info">Вернуться к оплате</span>
+        </div>
+        <h1>История платежей</h1>
+        <div id="month-choice">
+            <a href="#" class="change-month"><img src="img/left.svg" onmouseover="this.src='img/leftHover.svg';" onmouseout="this.src='img/left.svg';" width="26px"></a>
+            <span id="payment-month">Март 2024</span>
+            <a href="#" class="change-month"><img src="img/right.svg" onmouseover="this.src='img/rightHover.svg';" onmouseout="this.src='img/right.svg';" width="26px"></a>
+        </div>
+        
+        <ul id="children-container">
+            <li class="child-payment">
+                <div class="child-payment-info">
+                    <div class="child-closed-info">
+                        <p class="child-name">Иванов Петр Александрович</p>
+                        <p class="monthly-amount">4 552 ₽</p>
+                    </div>
+                </div>
+            </li>
+            <li class="child-payment">
+                <div class="child-payment-info">
+                    <div class="child-closed-info">
+                        <p class="child-name">Иванов Петр Александрович</p>
+                        <p class="monthly-amount">4 552 ₽</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
