@@ -50,37 +50,6 @@
                     <div class="child-closed-info">
                         <p class="child-name">Иванов Петр Александрович</p>
                         <p class="monthly-amount">4 552 ₽</p>
-                        <button class="open-info"></button>
-                    </div>
-                    <div class="child-opened-info">
-                        <p class="child-name">Иванов Петр Александрович</p>
-                        <ul class="payment-dishes-list">
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                        </ul>
-                        <div class="month-total">
-                            <span>Итого</span>
-                            <p class="total-amount">4 552 ₽</p>
-                        </div>
-                        <button class="close-info"></button>
                     </div>
                 </div>
             </li>
@@ -93,37 +62,6 @@
                     <div class="child-closed-info">
                         <p class="child-name">Иванов Петр Александрович</p>
                         <p class="monthly-amount">4 552 ₽</p>
-                        <button class="open-info"></button>
-                    </div>
-                    <div class="child-opened-info">
-                        <p class="child-name">Иванов Петр Александрович</p>
-                        <ul class="payment-dishes-list">
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                            <li class="dish-month">
-                                <p>Яичница</p>
-                                <p>5 раз</p>
-                                <p>1 152 ₽</p>
-                            </li>
-                        </ul>
-                        <div class="month-total">
-                            <span>Итого</span>
-                            <p class="total-amount">4 552 ₽</p>
-                        </div>
-                        <button class="close-info"></button>
                     </div>
                 </div>
             </li>
@@ -134,28 +72,6 @@
             </button>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const openInfoButtons = document.querySelectorAll('.open-info');
-            const closeInfoButtons = document.querySelectorAll('.close-info');
-
-            openInfoButtons.forEach(function(button) {
-                button.addEventListener('click', function(event) {
-                    const parentPaymentInfo = event.target.closest('.child-payment-info');
-                    parentPaymentInfo.querySelector('.child-closed-info').style.display = 'none';
-                    parentPaymentInfo.querySelector('.child-opened-info').style.display = 'flex';
-                });
-            });
-
-            closeInfoButtons.forEach(function(button) {
-                button.addEventListener('click', function(event) {
-                    const parentPaymentInfo = event.target.closest('.child-payment-info');
-                    parentPaymentInfo.querySelector('.child-closed-info').style.display = 'flex';
-                    parentPaymentInfo.querySelector('.child-opened-info').style.display = 'none';
-                });
-            });
-        });
-    </script>
     <script>
         const checkboxContainers = document.querySelectorAll('.checkboxContainer');
         checkboxContainers.forEach(function(container) {
