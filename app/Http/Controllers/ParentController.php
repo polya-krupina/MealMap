@@ -30,8 +30,8 @@ class ParentController extends Controller
             'kids' => auth()->user()->kids,
             'kid' => $kid,
             'week' => $weekDates,
-            'weekStart' => $weekStart->formatLocalized('%d %B'),
-            'weekEnd' => $weekEnd->formatLocalized('%d %B'),
+            'weekStart' => $weekStart->isoformat("MMMM  D"),
+            'weekEnd' => $weekEnd->isoformat("MMMM D"),
             'selected' => $selected,
             'weekOrders' => $weekOrders
         ]);
@@ -87,30 +87,59 @@ class ParentController extends Controller
 
         
 
-        $dishes = [];
-        $count = 0;
-        foreach($orders as $kid){
-            foreach($kid as $order){
-                foreach($order->preset->meals as $meal){
-                    foreach($meal->dishes as $dish){
-                        $dishes[$kids[$count]->id][$dish->id]['dish'] = $dish;
-                        if (!isset($dishes[$kids[$count]->id][$dish->id]['count'])){
-                            $dishes[$kids[$count]->id][$dish->id]['count'] = 0;
-                        }
-                        $dishes[$kids[$count]->id][$dish->id]['count']++;
-                    } 
-                }
-            }
-            $count++;
-        }
+        // $dishes = [];
+        // $count = 0;
+        // foreach($orders as $kid){
+        //     foreach($kid as $order){
+        //         foreach($order->preset->meals as $meal){
+        //             foreach($meal->dishes as $dish){
+        //                 $dishes[$kids[$count]->id][$dish->id]['dish'] = $dish;
+        //                 if (!isset($dishes[$kids[$count]->id][$dish->id]['count'])){
+        //                     $dishes[$kids[$count]->id][$dish->id]['count'] = 0;
+        //                 }
+        //                 $dishes[$kids[$count]->id][$dish->id]['count']++;
+        //             } 
+        //         }
+        //     }
+        //     $count++;
+        // }
 
         
-        return view('kids.payment', [
+        return view('payment.show', [
+            'kids' => $kids,
+            'month' => $startDate->isoformat("MMMM Y"),
+            'orderSums' => $ordersSums,
+            'payments' => $payments,
+            'today' => $now
+        ]);
+    }
+
+    public function history(){
+        $selected =  Carbon::createFromFormat('Y-m-d', request('date'));
+        $startDate = $selected->copy()->startOfMontH();
+        $endDate = $selected->copy()->endOfMonth();
+        $orders = Order::whereDate('day', '<=', $endDate)->whereDate('day', '>=', $startDate)->where('completed', '1')->where('paid', '1')->get()->groupBy('kid_id');
+        $kids = auth()->user()->kids;
+        $ordersSums = [];
+        $payments = [];
+
+        foreach($kids as $kid){
+            $ordersSums[$kid->id] = 0;
+            if (!isset($orders[$kid->id])) continue;
+            $payments[] = $kid;
+            foreach($orders[$kid->id] as $order){
+                $ordersSums[$kid->id] += $order->price;
+            }
+        }
+
+
+        
+        return view('payment.history', [
             'kids' => $kids,
             'month' => $startDate->formatLocalized('%B %Y'),
-            'dishes' => $dishes,
             'orderSums' => $ordersSums,
-            'payments' => $payments
+            'payments' => $payments,    
+            'date' => $selected
         ]);
     }
 }

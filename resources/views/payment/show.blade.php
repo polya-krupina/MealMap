@@ -1,3 +1,4 @@
+
 <x-layout :kids="$kids" id="page-content" active="payment">
     
     @push('styles')
@@ -9,7 +10,7 @@
     <span id="payment-month">{{ $month }}</span>
     <ul id="children-container">
         @foreach ($payments as $kid)
-        <li class="child-payment">
+        <li class="child-payment">  
             <div class="checkboxContainer">
                 <div class="checkboxImage"></div>
                 <input type="checkbox" class="checkboxInput" data-id="{{ $kid->id }}" onclick="add_kid(this.dataset.id)">
@@ -18,26 +19,6 @@
                 <div class="child-closed-info">
                     <p class="child-name">{{ $kid->name }}</p>
                     <p class="monthly-amount">{{ $orderSums[$kid->id] }} ₽</p>
-                    <button class="open-info"></button>
-                </div>
-                <div class="child-opened-info">
-                    <p class="child-name">{{ $kid->name }}</p>
-                    <ul class="payment-dishes-list">
-                        @if(isset($dishes[$kid->id]))
-                        @foreach ($dishes[$kid->id] as $dish)
-                            <li class="dish-month">
-                                <p>{{ $dish['dish']->name }}</p>
-                                <p>{{ $dish['count']}} {{$dish['count'] % 10 == 2 || $dish['count'] % 10 == 3 || $dish['count'] % 10 == 4 ? ' раза' : ' раз'}} </p>
-                                <p>{{ $dish['count'] * $dish['dish']->price }} ₽</p>
-                            </li>
-                        @endforeach
-                        @endif
-                    </ul>
-                    <div class="month-total">
-                        <span>Итого</span>
-                        <p class="total-amount">{{ $orderSums[$kid->id] }} ₽</p>
-                    </div>
-                    <button class="close-info"></button>
                 </div>
             </div>
         </li>
@@ -45,12 +26,18 @@
         <div class="error-notification" style="display: none;">:message</div>
         @if (count($payments) == 0 )
         <div id="payment-button-container">
+            <a href="/payment/history?date={{ $today->subMonth()->format('Y-m-d') }}" class="open-payment-history">
+                Посмотреть историю платежей
+            </a>
             <button class="pay-for-month inactive-button"  onclick="pay()" disabled>
                 Оплатить
             </button>
         </div>
         @else
         <div id="payment-button-container">
+            <a href="/payment/history?date={{ $today->subMonth()->format('Y-m-d') }}" class="open-payment-history">
+                Посмотреть историю платежей
+            </a>
             <button class="pay-for-month"  onclick="pay()">
                 Оплатить
             </button>

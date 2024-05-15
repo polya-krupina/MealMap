@@ -1,0 +1,117 @@
+
+#choose-template:hover,
+#choose-template.hovered{
+    border-bottom: none;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.list-header {
+    width: 172px;
+    height: 10px;
+    padding: 24px 87px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background: var(--white-background);
+    color: var(---_, #000301);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+.text-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+}
+.list-container {
+    width: 346px;
+    max-height: 320px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    border: 1px solid var(--grey-border);
+    border-top: none;
+    background: var(--white-background);
+    color: var(---_, #000301);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 2;
+    display: none;
+}
+.options-list {
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+.options-list li {
+    width: 100%;
+    transition: 0.3s;
+}
+.options-list a {
+    transition: 0.3s;
+    width: calc(100% - 30px);
+    display: block;
+    height: 19px;
+    padding: 22px 0;
+    padding-left: 30px;
+    border-top: 1px solid rgb(212, 212, 212, .25);
+}
+.options-list a:hover {
+    background-color: var(--green-light);
+}
+.options-list li:last-child a {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.options-list::-webkit-scrollbar {
+    width: 3px;
+}
+.options-list::-webkit-scrollbar-track {
+    background: var(--grey-border);
+}
+.options-list::-webkit-scrollbar-thumb {
+    background: var(--green-color);
+    border-radius: var(--border-radius);
+}
+.list-header:hover,
+.list-header.hovered {
+    border-bottom: none;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.list-header:hover + .list-container,
+.list-container:hover {
+    display: block;
+}
+
+#main-container{
+    margin: 75px 0;
+    width: calc(100% - 30px);
+}
+#main-container > p{
+    color: var(--black-text);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}
+.worker-dishes-list{
+    color: var(--black-text);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 21px;
+}
+.worker-dish-container{
+    border-top: 1px solid rgba(135, 135, 135, .25);
+    display: flex;
+    justify-content: space-between;
+    height: 33px;
+    align-items: center;
+    padding: 14px 30px;
+    text-transform: uppercase;
+}

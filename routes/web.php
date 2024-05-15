@@ -34,7 +34,9 @@ Route::get('logout', [SessionController::class,'destroy'])->middleware('auth');
 Route::get('kids/{kid:id}', [ParentController::class,'show'])->middleware('parent')->name('kid');
 Route::get('kids/{kid:id}/order', [OrderController::class,'show'])->middleware('parent');
 Route::get('kids/{kid:id}/allergies', [ParentController::class, 'allergy'])->middleware('parent');
+
 Route::get('/payment', [ParentController::class, 'payment'])->middleware('parent');
+Route::get('/payment/history', [ParentController::class, 'history'])->middleware('parent');
 Route::post('pay', [ParentController::class, 'pay'])->middleware('parent');
 
 Route::post('orders', [OrderController::class, 'store']);
