@@ -13,7 +13,7 @@ class UserGroupController extends Controller
             ]),
             'admin' => 'admin.index',
             'teacher' => 'teacher.index',
-            'canteen' => 'canteen.index'
+            'canteen' => view('worker.index')
         ];
         
         $user = auth()->user();

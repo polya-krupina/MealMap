@@ -56,6 +56,8 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
+        
+
         $products = Product::factory(10)->create();
 
         $kids->each(function ($kid) use ($products) {

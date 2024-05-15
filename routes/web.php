@@ -9,6 +9,7 @@ use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TemplatesController;
 use App\Http\Controllers\UserGroupController;
+use App\Http\Controllers\WorkerController;
 use Illuminate\Support\Facades\Route;   
 
 
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Parent routes;
+
 Route::get('/', [UserGroupController::class, 'index'])->middleware('auth')->name('home');
 
 Route::get('login', [SessionController::class,'login'])->middleware('guest')->name('login');
@@ -60,3 +63,8 @@ Route::get('/dish/{dish:id}',[DishesController::class, 'send'])->middleware('par
 
 Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');
 Route::post('/save', [OrderController::class, 'save']);
+
+
+
+// Worker routes
+Route::get('schedule', [WorkerController::class, 'schedule'])->middleware('canteen');
