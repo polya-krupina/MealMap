@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function presets(){
         return $this->hasMany(Preset::class);
     }
+
+    public function kindergarten(){
+        return $this->belongsTo(Kindergarten::class);
+    }
 }

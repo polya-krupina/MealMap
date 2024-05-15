@@ -74,7 +74,7 @@ class TemplatesController extends Controller
         return view('templates.edit', [
             'preset' => $preset,
             'kids' => auth()->user()->kids,
-            'dishes' => Dish::all()->groupBy('meal_type_id'),
+            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->groupBy('meal_type_id'),
         ]);
     }
 }

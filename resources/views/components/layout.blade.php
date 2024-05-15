@@ -41,17 +41,17 @@
             @else
             <ul class="worker-options">
                 <hr></hr>
-                <li class="worker-option">
-                    <a href="/schedule" class="option-text {{ $active == "schedule" ? 'active' : '' }}"><span>Посмотреть расписание</span></a>
+                <li class="worker-option {{ $active == "schedule" ? 'active' : '' }}">
+                    <a href="/schedule?date={{ Carbon\Carbon::now()->format("Y-m-d") }}" class="option-text"><span>Посмотреть расписание</span></a>
                 </li>
                 <hr></hr>
-                <li class="worker-option">
-                    <a href="/menu" class="option-text {{ $active == "menu" ? 'active' : '' }}"><span>Загрузить меню на месяц</span></a>
+                <li class="worker-option  {{ $active == "menu" ? 'active' : '' }}">
+                    <a href="/menu" class="option-text"><span>Загрузить меню на месяц</span></a>
                 </li>
                 <hr></hr>
             </ul>
             <ul class="buttons">
-                <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
+                <hr></hr><li><a href="/logout" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
             </ul>
         @endif
     </nav>

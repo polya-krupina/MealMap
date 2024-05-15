@@ -8,7 +8,7 @@ use App\Models\Dish;
 class DishesController extends Controller
 {
     public function show(){
-        $dishesGroupped = Dish::all()->groupBy('meal_type_id');
+        $dishesGroupped = Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->get()->groupBy('meal_type_id');
         return view('dishes.show', [
             'kids' => auth()->user()->kids,
             'dishes' => $dishesGroupped,

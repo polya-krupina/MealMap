@@ -67,4 +67,6 @@ Route::post('/save', [OrderController::class, 'save']);
 
 
 // Worker routes
-Route::get('schedule', [WorkerController::class, 'schedule'])->middleware('canteen');
+Route::get('/schedule', [WorkerController::class, 'schedule'])->middleware('canteen');
+Route::get('/menu', [WorkerController::class, 'menu'])->middleware('canteen');
+Route::post('/menu/save', [WorkerController::class, 'save'])->middleware('canteen');

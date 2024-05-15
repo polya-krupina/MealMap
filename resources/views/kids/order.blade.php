@@ -85,7 +85,7 @@
         </script>
         <script>
             function send(){
-                let data = {щ
+                let data = {
                     'meals' : meals,
                     'kid_id' : {!! $kid->id !!},
                     'day': '{!! $date->format('Y-m-d')!!}'

@@ -49,6 +49,8 @@ class DatabaseSeeder extends Seeder
 
         $users = User::all()->map(function (User $user) use ($parentRole) { 
             $user->assignRole($parentRole);
+            $user->kindergarten_id = 1;
+            $user->save();
         });
 
         $user = User::first();
@@ -56,7 +58,9 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
-        
+        $user = User::factory(1)->create([
+            'kindergarten_id' => 1
+        ])->last()->assignRole($canteenWorkerRole);
 
         $products = Product::factory(10)->create();
 
@@ -83,7 +87,8 @@ class DatabaseSeeder extends Seeder
         for( $i = 0; $i < count($mealsTypes); $i++ ){
             $dishes = Dish::factory(10)
                 ->create([
-                    'meal_type_id' => $mealsTypes[$i]->id
+                    'meal_type_id' => $mealsTypes[$i]->id,
+                    'kindergarten_id' => 1
                 ])
                 ->each(function ($dish) use ($products) {
                     $dish->products()->attach(

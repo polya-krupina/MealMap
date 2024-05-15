@@ -48,7 +48,7 @@ class OrderController extends Controller
             'order' => $order,
             'week' => $weekDates,
             'kid' => $kid,
-            'dishes' => Dish::all()->groupBy('meal_type_id'),
+            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->groupBy('meal_type_id'),
             'date' => $selected,
             'today' => $today,
             'weekOrders' => $weekOrders,

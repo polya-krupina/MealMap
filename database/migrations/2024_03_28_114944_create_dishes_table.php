@@ -17,13 +17,14 @@ class CreateDishesTable extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
-            //pfp
+            $table->foreignId('kindergarten_id')->constrained()->cascadeOnDelete();
             $table->integer('price')->nullable(false);
             $table->integer('proteins')->nullable(false);
             $table->integer('fats')->nullable(false);
             $table->integer('carbohydrates')->nullable(false);
             $table->integer('callories')->nullable(false);
             $table->foreignId('meal_type_id')->constrained()->cascadeOnDelete();
+            $table->string('avatar')->nullable();
         });
     }
 

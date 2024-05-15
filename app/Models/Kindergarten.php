@@ -12,4 +12,8 @@ class Kindergarten extends Model
     protected $guarded = [];
 
     public $timestamps = false;
+
+    public function groups(){
+        return $this->hasMany(Group::class);
+    }
 }

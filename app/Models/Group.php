@@ -11,4 +11,8 @@ class Group extends Model
 
     protected $guarded = [];
     public $timestamps = false;
+
+    public function kids(){
+        return $this->hasMany(Kid::class);
+    }
 }
