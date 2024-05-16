@@ -59,7 +59,8 @@ Route::post('allergy', [AllergyController::class,'create'])->middleware('parent'
 Route::delete('allergy', [AllergyController::class,'delete'])->middleware('parent');
 
 Route::get('/dishes',[DishesController::class, 'show'])->middleware('parent');
-Route::get('/dish/{dish:id}',[DishesController::class, 'send'])->middleware('parent');
+Route::get('/dish/{dish:id}',[DishesController::class, 'send'])->middleware('auth');
+Route::post('/dish/remove', [DishesController::class, 'destroy'])->middleware('auth');
 
 Route::post('/upload-avatar', [KidController::class, 'avatarChange'])->middleware('parent');
 Route::post('/save', [OrderController::class, 'save']);

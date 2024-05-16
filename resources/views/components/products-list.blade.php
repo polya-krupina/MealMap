@@ -2,6 +2,10 @@
 
 <p {{ $attributes(['class' => '']) }}>
     @foreach ($dish->products as $product)
-        {{ ucwords($product->name) . ', ' }}
+    @if ($product != $dish->products[$dish->products->keys()->last()])
+    {{ ucwords($product->name) . ', ' }}
+    @else
+    {{ ucwords($product->name)}}
+    @endif
     @endforeach
 </p>

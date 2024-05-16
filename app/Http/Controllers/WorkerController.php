@@ -94,6 +94,7 @@ class WorkerController extends Controller
             'proteins' => 'required',
             'carbohydrates' => 'required',
             'fats' => 'required',
+            'meal' => 'required'
         ]);
 
         $dish = new Dish();
@@ -104,10 +105,10 @@ class WorkerController extends Controller
         $dish->carbohydrates = $attributes['carbohydrates'];
         $dish->fats = $attributes['fats'];
         $dish->kindergarten_id = auth()->user()->kindergarten_id;
-        $dish->meal_type_id = 1;
+        $dish->meal_type_id = $attributes['meal'];
         
-        // if (request('img'))
-        //     $dish->avatar = $request->file('img')->store('avatars');
+        if (request('img'))
+            $dish->avatar = $request->file('img')->store('avatars');
         
         $products = collect(preg_split('/[\s,]+/', $attributes['products']));
         $genered = new Collection();

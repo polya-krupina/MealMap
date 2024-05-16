@@ -18,10 +18,10 @@
             <input type="hidden" name="dinner">
             <input type="hidden" name="half_day">
             <div id="tamplate-name">
-                <input type="text" name="name" id="tamplate-name-input" placeholder=" ">
+                <input type="text" name="name" id="tamplate-name-input" placeholder=" " required>
                 <label id="tamplate-name-label">Название шаблона ...</label>
             </div>
-            <button type="submit" id="save-template" onclick="alert('Сохранено'); save();">
+            <button type="submit" id="save-template" onclick="save();">
                 Сохранить
             </button>
         </form>
@@ -32,14 +32,21 @@
         <x-meal-info :dishes="$dishes[3]">Обед</x-meal-info>
         <x-meal-info :dishes="$dishes[4]">Полдник</x-meal-info>
     </div>
+    <div class="error-notification" style="display: none;">:message</div>
     <x-dish-info-card/>
     <div id="dark-overlay"></div>
-
+    @if($errors->any())
+    <script src="{{ asset('js/show-error.js') }}"></script>
+    <script>
+        showError('Все поля должны быть заполнены!');
+    </script>
+    @endif
 @push('scripts')
     <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
     <script src="{{ asset('js/save-before-leave.js') }}"></script>
     <script src="{{ asset('js/dishes-search.js') }}"></script>
     <script src="{{ asset('js/dishes-search-display.js') }}"></script>
     <script src="{{ asset('js/dish-card-pop-logic.js') }}"></script>
+    
 @endpush
 </x-layout>

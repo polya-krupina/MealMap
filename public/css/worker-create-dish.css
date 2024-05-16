@@ -104,18 +104,20 @@
     border-bottom: 1px solid var(--grey-border);
     grid-column: span 2;
 }
-.form-group:last-child,
 .menu-button{
   grid-column: 1 / -1;
+}
+.form-group:last-child{
+  grid-column: 1 / 1;
+}
+.dropdown-list{
+  grid-column: 2 / 2;
 }
 #create-dish-menu h2{
   grid-column: 1 / 3;
 }
 .form-group:nth-last-child(3){
-    grid-column: 2 / span 1;
-}
-.form-group:nth-last-child(2){
-    grid-column: 1 / -1;
+    grid-column: 1 / 1;
 }
 .chosen-img{
     display: flex;
@@ -148,4 +150,119 @@
     padding-top: 15px;
     margin-top: -31px;
     /* border-top: 1px solid var(--grey-border); */
+}
+.list-container {
+    width: 450px;
+    max-height: 320px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    border: 1px solid var(--grey-border);
+    border-top: none;
+    background: var(--white-background);
+    color: var(---_, #000301);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 2;
+    display: none;
+    position: absolute;
+    top: 58px
+}
+
+.list-header:hover + .list-container,
+.list-container:hover {
+    display: block;
+}
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.list-header:hover,
+.list-header.hovered {
+    border-bottom: 1px solid var(--white-background);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.list-header:hover + .list-container,
+.list-container:hover {
+    display: block;
+}
+.list-header {
+    width: 276px;
+    height: 10px;
+    padding: 27px 87px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-border);
+    background: var(--white-background);
+    color: var(---_, #000301);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+.text-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.options-list {
+    max-height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+.options-list li {
+    width: 100%;
+    transition: 0.3s;
+}
+.options-list a {
+    transition: 0.3s;
+    width: calc(100% - 30px);
+    display: block;
+    height: 19px;
+    padding: 22px 0;
+    padding-left: 30px;
+    border-top: 1px solid rgb(212, 212, 212, .25);
+}
+.options-list a:hover {
+    background-color: var(--green-light);
+}
+.options-list li:last-child a {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.options-list::-webkit-scrollbar {
+    width: 3px;
+}
+.options-list::-webkit-scrollbar-track {
+    background: var(--grey-border);
+}
+.options-list::-webkit-scrollbar-thumb {
+    background: var(--green-color);
+    border-radius: var(--border-radius);
+}
+
+
+.remove-dish{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 14px;
+    height: 14px;
+    background-image: url('../img/remove.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border: none;
+    background-color: transparent;
+}
+.remove-dish:hover{
+    background-image: url('../img/remove-hover.svg');
+    background-position: -11px -11px;
+    background-size: 41px 41px;
+}
+.dish-card{
+    position:relative;
 }

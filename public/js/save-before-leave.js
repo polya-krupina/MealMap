@@ -10,8 +10,9 @@ function save(){
     second_breakfast.value = meals[1];
     dinner.value = meals[2];
     half_day.value = meals[3];
-    
 }
+
+
 window.addEventListener('beforeunload', function (e) {
     var confirmationMessage = 'Are you sure you want to leave?';  // Set a custom confirmation message
     if (saved){

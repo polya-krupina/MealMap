@@ -4,12 +4,8 @@ let dishName = card.querySelector('h4');
 let price = card.querySelector('.price');
 let products = card.querySelector('.composition-text');
 let spisok = card.querySelector('.values-list');
+let image = card.querySelector('#image');
 
-// document.querySelectorAll('.open-info').forEach(function(a){
-//     a.addEventListener('click', (e) => {
-        
-//     })
-// });
 
 function validate_products(products){
     let returning = '';
@@ -25,9 +21,8 @@ function validate_products(products){
 document.addEventListener('DOMContentLoaded', function() {
     var openDishCards = document.querySelectorAll('.open-info');
     var closeButton = document.getElementById('close-card');
-    var changeNumberForm = document.getElementById('dish-info-card');
+    var changeNumberForm = document.getElementById('dish-info-card');   
     var darkOverlay = document.getElementById('dark-overlay');
-
     openDishCards.forEach(function(openDishCard) {
         let dish_id = openDishCard;
         if (dish_id.dataset.id != null)
@@ -44,10 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 fats.innerHTML = fats.innerHTML.split(' ')[0] + ' ' + response.data.fats;
                 carbohydrates.innerHTML = carbohydrates.innerHTML.split(' ')[0] + ' ' + response.data.carbohydrates;
                 products.innerHTML = validate_products(response.data.products);
+                if (response.data.avatar == null)
+                    image.src = 'http://myapp/img/fried-eggs.png';
+                else
+                    image.src = 'http://myapp/storage/' + response.data.avatar;
                 document.body.style.overflow = 'hidden';
                 changeNumberForm.style.display = 'block';
                 darkOverlay.style.display = 'block';
-                console.log(card);
             });
             
         });

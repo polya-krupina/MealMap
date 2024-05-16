@@ -7,7 +7,7 @@
         <h4>{{ ucwords($dish->name) }}</h4>
         <p class="price">{{ $dish->price }} ₽</p>
     </div>
-    <div class="dish-img-big"><img src="{{ asset('img/fried-eggs.png') }}"></div>
+    <div class="dish-img-big"><img src="{{ $dish->avatar ? asset('storage/' . $dish->avatar) : asset('img/fried-eggs.png') }}"></div>
     <div class="composition-big">
         <h5>Состав:</h5>
         <hr></hr>

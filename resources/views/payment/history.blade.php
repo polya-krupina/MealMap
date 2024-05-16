@@ -7,7 +7,7 @@
     @endpush
 
     <div id="back-payment">
-        <a href="parent-payment.html" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src='{{ asset('img/leftHover.svg') }}';" onmouseout="this.src='{{ asset('img/left.svg') }}';" width="26px"></a>
+        <a href="/payment" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src='{{ asset('img/leftHover.svg') }}';" onmouseout="this.src='{{ asset('img/left.svg') }}';" width="26px"></a>
         <span class="week-info">Вернуться к оплате</span>
     </div>
     <h1>История платежей</h1>

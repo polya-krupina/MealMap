@@ -1,10 +1,11 @@
+<div id="dark-overlay"></div>
 <div id="dish-info-card">
     <button id="close-card"></button>
     <div class="main-dish-info">            
         <h4>Яичница</h4>
         <p class="price">200 ₽</p>
     </div>
-    <div class="dish-img-big"><img src="{{ asset('img/fried-eggs.png') }}" alt=""></div>
+    <div class="dish-img-big"><img src="{{ asset('img/fried-eggs.png') }}" alt="" id="image"></div>
     <div class="composition-big">
         <h5>Состав:</h5>
         <hr></hr>
@@ -23,3 +24,7 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script src="js/open-dish-info-card.js"></script>
+@endpush

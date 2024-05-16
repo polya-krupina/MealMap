@@ -47,6 +47,7 @@
             </button>
         @endif
     </div>
+    {{-- {{ ddd($dishes) }} --}}
     <div id="day-menu-container">
         @if (request('template') || $order)    
         <x-meal-info :meal="$preset->meals[0]" :dishes="$dishes[1]"> Завтрак </x-meal-info>

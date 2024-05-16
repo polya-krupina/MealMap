@@ -1,6 +1,6 @@
 @props(['dish'])
 <div class="dish-card" data-id="{{ $dish->id }}">
-    <div class="dish-img"><img src="{{ asset('img/fried-eggs.png') }}"></div>
+    <div class="dish-img"><img src="{{ $dish->avatar ? asset('storage/' . $dish->avatar) : asset('img/fried-eggs.png') }}"></div>
     <button class="remove-dish" style="display: none;"></button>
     <div class="dish-info"> 
         <div class="main-dish-info">

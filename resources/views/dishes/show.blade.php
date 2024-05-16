@@ -29,7 +29,6 @@
     </section>
 </section>
 
-<div id="dark-overlay"></div>
 <x-dish-info-card/>
 
 @push('scripts')
@@ -68,6 +67,5 @@
         });
     </script>
     <script src="{{ asset('js/open-dish-info-card.js') }}"></script>
-    <script src="{{ asset('js/dish-card-link.js') }}"></script>
 @endpush
 </x-layout>

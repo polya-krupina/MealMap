@@ -20,4 +20,11 @@ class DishesController extends Controller
         $id = $dish->id;
         return response()->json(Dish::with('products')->where('id', $id)->first());
     }
+
+    public function destroy(Request $request){
+        $dish = Dish::find($request->id);
+        $dish->delete();
+
+        return back()->with(['success' => 'Успешно']);
+    }
 }
