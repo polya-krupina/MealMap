@@ -15,6 +15,8 @@
     <nav id="menu">
         <a href="parent-default.html" class="logo"><img src="img/whiteLogo.svg" width="148px" height="25px"></a>
         <p class="kindergarten-name">Маленький Гений</p>
+        <p class="user-name">Иванова Екатерина Алексеевна</p>
+        <button id="open-chat"><img src="img/chat.svg" alt="chat"></button>
         <span id="my-children">Мои дети</span>
         <ul class="children">
             <hr></hr>
@@ -36,9 +38,68 @@
             <hr></hr><li><a href="#" class="button"><img src="img/exit.svg"><span>Выход</span></a></li>
         </ul>
     </nav>
-
+    <div id="chat-overlay"></div>
+    <section id="chat-container">
+        <div id="chat-history">
+            <div id="messages-list">
+                <div class="message message-to">
+                    <span class="sender-name">Барина Анастасия Валерьевна</span>
+                    <p class="messahe-content">Здравствуйте уважаемые родители! 
+                    Все ли сегодня будут?</p>
+                </div>
+                <div class="message message-from">
+                    <span class="sender-name">Вы</span>
+                    <p class="messahe-content">Моего ребенка сегодня не будет</p>
+                </div>
+                <div class="message message-to">
+                    <span class="sender-name">Данцова Марина Сергеевна</span>
+                    <p class="messahe-content">Нас тоже не будет</p>
+                </div>
+                <div class="message message-to">
+                    <span class="sender-name">Барина Анастасия Валерьевна</span>
+                    <p class="messahe-content">Здравствуйте уважаемые родители! 
+                    Все ли сегодня будут?</p>
+                </div>
+                <div class="message message-from">
+                    <span class="sender-name">Вы</span>
+                    <p class="messahe-content">Моего ребенка сегодня не будет</p>
+                </div>
+                <div class="message message-to">
+                    <span class="sender-name">Данцова Марина Сергеевна</span>
+                    <p class="messahe-content">Нас тоже не будет</p>
+                </div>
+                <div class="message message-to">
+                    <span class="sender-name">Барина Анастасия Валерьевна</span>
+                    <p class="messahe-content">Здравствуйте уважаемые родители! 
+                    Все ли сегодня будут?</p>
+                </div>
+                <div class="message message-from">
+                    <span class="sender-name">Вы</span>
+                    <p class="messahe-content">Моего ребенка сегодня не будет</p>
+                </div>
+                <div class="message message-to">
+                    <span class="sender-name">Данцова Марина Сергеевна</span>
+                    <p class="messahe-content">Нас тоже не будет</p>
+                </div>
+            </div>
+        </div>
+        <div id="write-message">
+            <input type="text" id="messahe-input" placeholder="Начните писать сообщение ...">
+            <button id="send-message"><img src="img/send-message.svg" alt="send"></button>
+        </div>
+    </section>
     <section class="logo-big-container">
         <img src="img/white-green-logo.svg" class="logo-big">
     </section>
+    <script>
+        document.getElementById('open-chat').addEventListener('click', function() {
+            document.getElementById('chat-overlay').style.display = 'block';
+            document.getElementById('chat-container').style.display = 'flex';
+        });
+        document.getElementById('chat-overlay').addEventListener('click', function() {
+            document.getElementById('chat-overlay').style.display = 'none';
+            document.getElementById('chat-container').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
