@@ -84,6 +84,23 @@
                     <span class="label-hover">Количество жиров</span>
                     <label class="form-label">Количество жиров ...</label>
                 </div>
+
+                <div class="dropdown-list">
+                    <div class="list-header">
+                        <div class="text-container">
+                            Прием пищи
+                            <img src="img/dropdown.svg">
+                        </div>
+                    </div>
+                    <div class="list-container">
+                        <ul class="options-list">
+                            <li><a>Завтрак</a></li>
+                            <li><a>Второй завтрак</a></li>
+                            <li><a>Обед</a></li>
+                            <li><a>Полдник</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <button class="menu-button">Создать блюдо</button>
             </form>
             <div class="meals-list">
@@ -99,6 +116,7 @@
                 <hr></hr>
                 <div class="dishes-list">
                     <div class="dish-card">
+                        <button class="remove-dish"></button>
                         <div class="dish-img"><img src="img/fried-eggs.png"></div>
                         <div class="dish-info">
                             <div class="main-dish-info">
@@ -115,6 +133,7 @@
                 <hr></hr>
                 <div class="dishes-list">
                     <div class="dish-card">
+                        <button class="remove-dish"></button>
                         <div class="dish-img"><img src="img/fried-eggs.png"></div>
                         <div class="dish-info">
                             <div class="main-dish-info">
@@ -224,6 +243,18 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.dropdown-list').forEach(function(dropdownList) {
+            const chooseTemplate = dropdownList.querySelector('.list-header');
+            const listContainer = dropdownList.querySelector('.list-container');
+            listContainer.addEventListener('mouseover', function() {
+                chooseTemplate.classList.add('hovered');
+            });
+            listContainer.addEventListener('mouseout', function() {
+                chooseTemplate.classList.remove('hovered');
             });
         });
     </script>
