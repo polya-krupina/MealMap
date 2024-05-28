@@ -40,6 +40,14 @@
     </nav>
     <div id="chat-overlay"></div>
     <section id="chat-container">
+        <div id="chat-header">
+            <button id="chat-back"><img src="img/back-white.svg" alt="back"></button>
+            <p id="chat-title">Чаты</p>
+        </div>
+        <ul id="chat-list">
+            <li><button class="chat-name">К-152</button></li>
+            <li><button class="chat-name">К-153</button></li>
+        </ul>
         <div id="chat-history">
             <div id="messages-list">
                 <div class="message message-to">
@@ -99,6 +107,29 @@
         document.getElementById('chat-overlay').addEventListener('click', function() {
             document.getElementById('chat-overlay').style.display = 'none';
             document.getElementById('chat-container').style.display = 'none';
+        });
+    </script>
+    <script>
+        const chatNames = document.querySelectorAll('.chat-name');
+        const chatList = document.querySelector('#chat-list');
+        const chatHistory = document.querySelector('#chat-history');
+        const writeMessage = document.querySelector('#write-message');
+        const chatBack = document.querySelector('#chat-back');
+        chatNames.forEach(chatName => {
+            chatName.addEventListener('click', () => {
+                chatList.style.display = 'none';
+                chatHistory.style.display = 'block';
+                writeMessage.style.display = 'flex';
+                chatBack.style.display = 'block';
+                document.querySelector('#chat-title').textContent = chatName.textContent;
+            });
+        });
+        chatBack.addEventListener('click', () => {
+            chatList.style.display = 'block';
+            chatHistory.style.display = 'none';
+            writeMessage.style.display = 'none';
+            chatBack.style.display = 'none';
+            document.querySelector('#chat-title').textContent = 'Чаты';
         });
     </script>
 </body>
