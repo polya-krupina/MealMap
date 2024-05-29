@@ -1,7 +1,6 @@
-<x-layout class="content" :kids="$kids" active="dishes">
+<x-layout class="content" :kids="$kids" active="dishes" :groups="$groups">
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/parent-month-menu.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @endpush
 
     <div class="header">

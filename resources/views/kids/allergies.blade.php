@@ -1,6 +1,5 @@
-<x-layout :kids="$kids" class="content" :active="$kid->id">
+<x-layout :kids="$kids" class="content" :active="$kid->id" :groups="$groups">
     @push('styles')
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/parent-child-info.css') }}">
     @endpush
 

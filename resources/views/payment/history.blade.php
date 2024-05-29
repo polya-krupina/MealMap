@@ -1,8 +1,7 @@
 
-<x-layout :kids="$kids" id="page-content" active="payment">
+<x-layout :kids="$kids" id="page-content" active="payment" :groups="$groups">
     
     @push('styles')
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/payment.css') }}">
     @endpush
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use Carbon\Carbon;
 use App\Models\Kid;
 use App\Models\Order;
@@ -21,7 +22,6 @@ class ParentController extends Controller
         }
 
         $weekOrders = [];
-        
         for ($i = 0; $i < 7; $i++){
             $weekOrders[] = $kid->orders()->where('day', $weekDates[$i])->first();    
         }
@@ -33,7 +33,8 @@ class ParentController extends Controller
             'weekStart' => $weekStart->isoformat("MMMM  D"),
             'weekEnd' => $weekEnd->isoformat("MMMM D"),
             'selected' => $selected,
-            'weekOrders' => $weekOrders
+            'weekOrders' => $weekOrders,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get()
         ]);
     }
 
@@ -44,6 +45,7 @@ class ParentController extends Controller
         return view('kids.allergies', [
             'kids' => auth()->user()->kids,
             'kid' => $kid,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'products'=> $products
         ]);
     }
@@ -85,31 +87,12 @@ class ParentController extends Controller
             }
         }
 
-        
-
-        // $dishes = [];
-        // $count = 0;
-        // foreach($orders as $kid){
-        //     foreach($kid as $order){
-        //         foreach($order->preset->meals as $meal){
-        //             foreach($meal->dishes as $dish){
-        //                 $dishes[$kids[$count]->id][$dish->id]['dish'] = $dish;
-        //                 if (!isset($dishes[$kids[$count]->id][$dish->id]['count'])){
-        //                     $dishes[$kids[$count]->id][$dish->id]['count'] = 0;
-        //                 }
-        //                 $dishes[$kids[$count]->id][$dish->id]['count']++;
-        //             } 
-        //         }
-        //     }
-        //     $count++;
-        // }
-
-        
         return view('payment.show', [
             'kids' => $kids,
             'month' => $startDate->isoformat("MMMM Y"),
             'orderSums' => $ordersSums,
             'payments' => $payments,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'today' => $now
         ]);
     }
@@ -139,6 +122,7 @@ class ParentController extends Controller
             'month' => $startDate->formatLocalized('%B %Y'),
             'orderSums' => $ordersSums,
             'payments' => $payments,    
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'date' => $selected
         ]);
     }

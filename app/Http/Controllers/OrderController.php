@@ -6,6 +6,7 @@ use App\Models\Kid;
 use App\Models\Dish;
 use App\Models\Meal;
 use App\Models\Order;
+use App\Models\Group;
 use App\Models\Preset;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -49,6 +50,7 @@ class OrderController extends Controller
             'week' => $weekDates,
             'kid' => $kid,
             'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->get()->groupBy('meal_type_id'),
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'date' => $selected,
             'today' => $today,
             'weekOrders' => $weekOrders,

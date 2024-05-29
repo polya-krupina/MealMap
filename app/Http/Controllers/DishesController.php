@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Group;
 use App\Models\Dish;
 
 class DishesController extends Controller
@@ -12,6 +13,7 @@ class DishesController extends Controller
         return view('dishes.show', [
             'kids' => auth()->user()->kids,
             'dishes' => $dishesGroupped,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'found' => Dish::find(request('id'))
         ]);
     }

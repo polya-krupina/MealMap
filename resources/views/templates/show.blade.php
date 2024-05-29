@@ -1,4 +1,4 @@
-<x-layout :kids="$kids" class="page-content" active="templates">
+<x-layout :kids="$kids" class="page-content" active="templates"  :groups="$groups">
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
         <link rel="stylesheet" href="{{ asset('css/templates.css') }}">

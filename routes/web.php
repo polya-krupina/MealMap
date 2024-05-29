@@ -4,6 +4,7 @@ use App\Http\Controllers\AllergyController;
 use App\Http\Controllers\DishesController;
 use App\Http\Controllers\KidController;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ParentController;
 use App\Http\Controllers\SessionController;
@@ -71,3 +72,6 @@ Route::post('/save', [OrderController::class, 'save']);
 Route::get('/schedule', [WorkerController::class, 'schedule'])->middleware('canteen');
 Route::get('/menu', [WorkerController::class, 'menu'])->middleware('canteen');
 Route::post('/menu/save', [WorkerController::class, 'save'])->middleware('canteen');
+
+Route::post('/send-message', [MessageController::class, 'create'])->middleware('auth');
+Route::get('/get-messages/{group:id}', [MessageController::class, 'get'])->middleware('auth');

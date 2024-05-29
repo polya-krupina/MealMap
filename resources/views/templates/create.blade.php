@@ -1,10 +1,9 @@
-<x-layout :kids="$kids" class="page-content new-template" active="templates">
+<x-layout :kids="$kids" class="page-content new-template" active="templates" :groups="$groups">
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
         <link rel="stylesheet" href="{{ asset('css/templates.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     @endpush
     <div id="week-choice">
         <a href="/templates" class="change-week"><img src="{{ asset('img/left.svg') }}" onmouseover="this.src={{ asset('img/leftHover.svg') }};" onmouseout="this.src={{ asset('img/left.svg') }};" width="26px"></a>

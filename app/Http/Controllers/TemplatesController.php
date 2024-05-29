@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\Preset;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\Collection;
 
 class TemplatesController extends Controller
@@ -12,6 +13,7 @@ class TemplatesController extends Controller
     public function show(){
         return view("templates.show", [
             'kids' => auth()->user()->kids,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'presets' => auth()->user()->presets->where('saved', 1)
         ]);
     }
@@ -19,6 +21,7 @@ class TemplatesController extends Controller
     public function create(){
         return view("templates.create", [
             'kids' => auth()->user()->kids,
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'dishes' => Dish::all()->groupBy('meal_type_id')
         ]);
     }
@@ -74,7 +77,8 @@ class TemplatesController extends Controller
         return view('templates.edit', [
             'preset' => $preset,
             'kids' => auth()->user()->kids,
-            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->groupBy('meal_type_id'),
+            'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
+            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->get()->groupBy('meal_type_id'),
         ]);
     }
 }

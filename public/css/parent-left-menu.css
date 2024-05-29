@@ -31,6 +31,7 @@ a{
 .logo{
     margin: 30px 0 0 30px;
     height: 25px;
+    width: 146px;
 }
 #my-children{    
     font-size: 32px;
@@ -139,4 +140,12 @@ a{
 }
 .worker-options{
     margin-top: 217px;
+}
+#open-chat{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }

@@ -15,4 +15,8 @@ class Group extends Model
     public function kids(){
         return $this->hasMany(Kid::class);
     }
+
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }

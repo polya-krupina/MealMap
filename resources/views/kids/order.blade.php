@@ -1,10 +1,9 @@
-<x-layout :kids="$kids" class="page-content" :active="$kid->id">
+<x-layout :kids="$kids" class="page-content" :active="$kid->id"  :groups="$groups">
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-day-menu.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     @endpush
     <div id="week-choice">
