@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  app:
+  meal_map:
     build: .
     ports:
       - "8000:8000"
@@ -11,7 +11,7 @@ services:
       - mysql
   mysql:
     image: mysql:latest
-    container_name: mysql
+    container_name: sql
     ports:
       - "3306:3306"
     environment:
