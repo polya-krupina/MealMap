@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\models\Kid;
+use App\Models\Kid;
 use Illuminate\Http\Request;
 
 class KidController extends Controller

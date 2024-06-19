@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 carbohydrates.innerHTML = carbohydrates.innerHTML.split(' ')[0] + ' ' + response.data.carbohydrates;
                 products.innerHTML = validate_products(response.data.products);
                 if (response.data.avatar == null)
-                    image.src = 'http://myapp/img/fried-eggs.png';
+                    image.src = 'http://178.253.43.120:8000/img/fried-eggs.png';
                 else
-                    image.src = 'http://myapp/storage/' + response.data.avatar;
+                    image.src = 'http://178.253.43.120:8000/storage/' + response.data.avatar;
                 document.body.style.overflow = 'hidden';
                 changeNumberForm.style.display = 'block';
                 darkOverlay.style.display = 'block';

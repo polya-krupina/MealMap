@@ -38,8 +38,7 @@ class WorkerController extends Controller
 
         $kids = $selectedGroup->kids;
         $ordersToday = Order::where('day', $selected->format('Y-m-d'))->where('completed', 0)->where('paid', 0)->get();
-        $kidsToday = $ordersToday->pluck('id');
-
+        $kidsToday = $kids->pluck('id');
         $ordersToday = $ordersToday->whereIn('kid_id', $kidsToday->intersect($kids->pluck('id')));
         
         $meals = [
@@ -65,7 +64,6 @@ class WorkerController extends Controller
                 $c++;
             }
         }
-
         return view('worker.schedule',[
             'week' => $weekDates,
             'selected' => $selected,
@@ -79,7 +77,8 @@ class WorkerController extends Controller
 
     public function menu(){
         return view('worker.menu', [
-            'dishes' => Dish::all()->groupBy('meal_type_id')
+            'dishes' => Dish::all()->groupBy('meal_type_id'),
+            'groups' => auth()->user()->kindergarten->groups
         ]);
     }
 

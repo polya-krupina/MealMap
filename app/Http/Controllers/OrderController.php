@@ -49,7 +49,7 @@ class OrderController extends Controller
             'order' => $order,
             'week' => $weekDates,
             'kid' => $kid,
-            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->get()->groupBy('meal_type_id'),
+            'dishes' => Dish::where('kindergarten_id', auth()->user()->kindergarten_id)->whereNotIn('id', $kid->allergies->pluck('id'))->get()->groupBy('meal_type_id'),
             'groups' => Group::whereIn('id',auth()->user()->kids->pluck('group_id')->unique())->get(),
             'date' => $selected,
             'today' => $today,
