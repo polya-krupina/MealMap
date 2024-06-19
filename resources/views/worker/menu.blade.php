@@ -1,4 +1,4 @@
-<x-layout class="content" active="menu">
+<x-layout class="content" active="menu" :groups="$groups">
     @push('styles')
         <link rel="stylesheet" href="{{ asset('css/worker-create-dish.css') }}">
         <link rel="stylesheet" href="{{ asset('css/parent-month-menu.css') }}">

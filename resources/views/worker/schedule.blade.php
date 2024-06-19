@@ -1,4 +1,4 @@
-<x-layout active="schedule" class="page-content">
+<x-layout active="schedule" class="page-content" :groups="$groups">
     @push('styles')
         <link rel="stylesheet" href="css/parent.css">
         <link rel="stylesheet" href="css/parent-day-menu.css">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="list-container">
-                <ul class="options-list">
+                <ul class="options-list">   
                     @foreach ($groups as $group)
                         @if (!request('group'))
                             <li><a href="{{ $_SERVER['REQUEST_URI'] }}&group={{ $group->id }}">{{ $group->name }}</a></li>

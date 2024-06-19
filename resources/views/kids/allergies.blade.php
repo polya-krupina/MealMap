@@ -8,7 +8,7 @@
     @endpush
     <div class="child-info">
         <div class="avatar-container">
-            <img class="profile-img" src="{{ $kid->avatar ? asset('storage/' . $kid->avatar) : asset('img/empty.jpg')}}" width="125px" height="125px">
+            <img class="profile-img" src="{{ $kid->avatar ? asset('/storage/app/public/' . $kid->avatar) : asset('img/empty.jpg')}}" width="125px" height="125px">
             <input type="file" id="avatar-input" accept="image/*" style="display: none;">
             <button id="change-avatar"></button>
         </div>
